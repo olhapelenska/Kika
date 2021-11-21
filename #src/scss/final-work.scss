@@ -1,0 +1,21 @@
+.final-work {
+  &__container {
+    padding: 140px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__img {
+    margin-bottom: 140px;
+  }
+
+  &__link {
+    align-self: flex-end;
+    margin-right: 100px;
+  }
+
+  &__link-text {
+    font-size: 64px;
+    line-height: 83.2px;
+  }
+}

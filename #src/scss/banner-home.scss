@@ -1,0 +1,39 @@
+.banner-home {
+  &__container {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 7px;
+      height: 290px;
+      bottom: 0;
+      right: 0;
+      background-color: #131612;
+      transform: translateX(50%);
+    }
+  }
+
+  &__inner {
+    padding: 130px 0 170px;
+    margin-left: 100px;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__heading-part2 {
+    align-self: center;
+  }
+
+  &__heading-part3 {
+    align-self: flex-end;
+  }
+
+  &__text {
+    width: 366px;
+    padding-bottom: 35px;
+  }
+}

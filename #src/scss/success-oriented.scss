@@ -1,0 +1,37 @@
+.success-oriented {
+  &__container {
+  }
+
+  &__inside {
+    width: 84%;
+    margin: 0 auto;
+    padding: 210px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    width: 50%;
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 54.6px;
+  }
+
+  &__content {
+    width: 50%;
+  }
+
+  &__text {
+  }
+
+  &__paragraph {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24.3px;
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    margin-top: 35px;
+  }
+}

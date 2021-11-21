@@ -1,0 +1,30 @@
+.banner-blog {
+  position: relative;
+
+  .circles-img {
+    width: auto;
+    position: absolute;
+    top: 0;
+    left: 10.5%;
+  }
+
+  &__container {
+    padding: 166px 0 250px;
+  }
+
+  &__content {
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+  }
+
+  &__title {
+    padding-bottom: 15px;
+    z-index: 1;
+  }
+
+  &__text {
+    align-self: flex-end;
+  }
+}

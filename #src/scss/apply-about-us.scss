@@ -1,0 +1,149 @@
+.apply {
+  &__container {
+    padding: 230px 0;
+  }
+
+  &__looking4u {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 30px;
+  }
+
+  &__looking4u-title {
+    width: 42%;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      right: 0;
+      bottom: -10px;
+      width: 0.5px;
+      height: 100%;
+      background-color: #131612;
+    }
+  }
+
+  &__looking4u-title-text {
+    width: 86%;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 62.4px;
+  }
+
+  &__looking4u-mail {
+    width: 58%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__looking4u-mail-content {
+  }
+
+  &__looking4u-mail-link {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 41.6px;
+  }
+
+  &__vacancy {
+    display: flex;
+    padding-top: 45px;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      width: 100%;
+      height: 0.5px;
+      background-color: #131612;
+    }
+  }
+
+  &__vacancy-title {
+    width: 42%;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      right: 0;
+      top: -24px;
+      width: 0.5px;
+      height: 100%;
+      background-color: #131612;
+    }
+  }
+
+  &__vacancy-title-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__vacancy-title-text {
+  }
+
+  &__vacancy-info {
+    width: 58%;
+    padding: 0 0 50px 102px;
+  }
+
+  &__vacancy-info-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__vacancy-info-description {
+    width: 71%;
+  }
+
+  &__vacancy-info-paragraph {
+    padding-bottom: 35px;
+  }
+
+  &__vacancy-info-list {
+  }
+
+  &__vacancy-info-item {
+  }
+
+  &__vacancy-info-item-text {
+  }
+
+  &__vacancy-send-resume {
+    display: flex;
+    align-items: center;
+  }
+
+  &__vacancy-send-resume-button {
+    // margin: 0 auto;
+    border: 1px solid #131612;
+    padding: 28px 14px !important;
+    display: flex;
+
+    &:hover {
+      background-color: #131612;
+      color: #fff;
+    }
+  }
+
+  &__vacancy-send-resume-button-text {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+  }
+
+  .icon-arrow {
+    // text-orientation: sideways-right;
+    font-size: 12px;
+    padding-top: 10px;
+  }
+
+  &__vacancy-title-content {
+  }
+
+  &__vacancy-title-note {
+  }
+}

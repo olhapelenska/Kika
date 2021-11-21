@@ -1,0 +1,23 @@
+.screens-work {
+  &__container {
+  }
+
+  &__imgs {
+  }
+
+  &__img {
+    margin: 40px 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .screen-work {
+    width: 100%;
+  }
+}

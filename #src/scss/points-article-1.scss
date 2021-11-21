@@ -1,0 +1,53 @@
+.points-article-1 {
+  &__container {
+  }
+
+  &__point-1 {
+    margin: 140px 0;
+  }
+
+  &__point-text {
+    width: 67%;
+    margin-left: 100px;
+  }
+
+  &__point-title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 41.6px;
+  }
+
+  &__point-paragraph {
+    width: 64%;
+    margin-left: 100px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24.3px;
+    padding: 50px 0 30px;
+  }
+
+  &__point-img {
+  }
+
+  &__conclusion {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 113px;
+  }
+
+  &__conclusion-text-1 {
+    padding-bottom: 20px;
+  }
+
+  &__conclusion-text-2 {
+  }
+
+  .red {
+    color: red;
+    font-weight: 600;
+    font-size: 50px;
+  }
+  .point-img {
+    width: 100%;
+  }
+}

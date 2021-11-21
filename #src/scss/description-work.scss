@@ -1,0 +1,22 @@
+.description-work {
+  &__container {
+    padding: 140px 0;
+  }
+
+  &__content {
+    margin-left: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__link {
+  }
+
+  &__link-text {
+  }
+
+  &__paragraph {
+    width: 53%;
+  }
+}

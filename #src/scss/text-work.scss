@@ -1,0 +1,18 @@
+.text-work {
+  &__container {
+    padding: 150px 100px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__text {
+    width: 38%;
+  }
+
+  &__text-title {
+    margin-bottom: 35px;
+  }
+
+  &__text-paragraph {
+  }
+}

@@ -1,0 +1,30 @@
+.banner-services {
+  &__container {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 7px;
+      height: 205px;
+      bottom: 0;
+      right: 82px;
+      background-color: #131612;
+      transform: translateX(50%);
+    }
+  }
+
+  &__inner {
+    padding: 217px 0 205px;
+    margin-left: 100px;
+  }
+
+  &__heading {
+    padding-bottom: 25px;
+  }
+
+  &__text {
+    width: 356px;
+    margin: 0 auto;
+  }
+}

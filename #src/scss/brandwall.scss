@@ -1,0 +1,12 @@
+.brandwall {
+  overflow: hidden;
+
+  &__img {
+    display: block;
+    width: 120%;
+    position: relative;
+    top: 0;
+    left: 0;
+    transition: 2s;
+  }
+}

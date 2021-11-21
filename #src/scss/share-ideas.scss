@@ -1,0 +1,137 @@
+.share-ideas {
+  overflow: hidden;
+  position: relative;
+
+  .ellipse-yel {
+    position: absolute;
+    width: auto;
+    top: 0;
+    left: 20%;
+  }
+
+  .ellipse-gr {
+    position: absolute;
+    width: auto;
+    right: -5%;
+    bottom: -25%;
+  }
+
+  &__container {
+  }
+
+  &__inside {
+    width: 86%;
+    margin: 0 auto;
+  }
+
+  &__title {
+    line-height: 79.2px;
+    padding-bottom: 50px;
+  }
+
+  &__content {
+    display: flex;
+    padding-bottom: 240px;
+  }
+
+  &__fill {
+    width: 60%;
+  }
+
+  &__exclamation {
+    padding-bottom: 25px;
+  }
+
+  &__paragraph {
+    padding-bottom: 60px;
+  }
+
+  &__form {
+    padding-bottom: 70px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__name {
+    position: relative;
+    width: 45%;
+    border-bottom: 0.5px solid #a7aea4;
+  }
+
+  &__label {
+    display: block;
+    position: absolute;
+    top: -20%;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15.6px;
+    transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+  }
+
+  .active {
+    top: -25px;
+  }
+
+  &__input {
+    width: 100%;
+    background: inherit;
+  }
+
+  &__tel {
+    position: relative;
+    width: 45%;
+    border-bottom: 0.5px solid #a7aea4;
+  }
+
+  &__send {
+    display: flex;
+    align-items: center;
+  }
+
+  // &__btn-wrapper {
+  //   width: 40%;
+  // }
+
+  &__send-btn {
+    background-color: #131612;
+    color: #fff;
+  }
+
+  &__send-paragraph {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15.6px;
+    color: #a7aea4;
+    padding-left: 50px;
+    width: 48%;
+  }
+
+  &__get-in-touch {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__get-in-touch-wrapper {
+    width: 62%;
+    align-self: flex-end;
+  }
+
+  &__contacts {
+    padding-bottom: 70px;
+  }
+
+  &__contacts-text {
+    padding-bottom: 10px;
+  }
+
+  &__media {
+  }
+
+  &__media-text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15.6px;
+    padding-bottom: 10px;
+  }
+}

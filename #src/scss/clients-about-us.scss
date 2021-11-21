@@ -1,0 +1,31 @@
+.clients {
+  position: relative;
+  overflow: hidden;
+
+  &__container {
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 62.4px;
+    padding-bottom: 65px;
+    margin-left: 100px;
+  }
+
+  &__brandwall {
+    transition: 1s;
+    // width: 53%;
+  }
+
+  .clients-brandwall-img {
+    width: 200%;
+  }
+
+  .clients-ellipse {
+    position: absolute;
+    top: -30%;
+    right: -30%;
+    width: auto;
+  }
+}

@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "icons";
+  font-display: swap;
+  src: url("../fonts/icons.woff") format("woff"),
+    url("../fonts/icons.woff2#icons") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+%ic {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"],
+[class*="icon-"] {
+  &:before {
+    @extend %ic;
+    display: block;
+  }
+}
+
+.icon-bulb .path1:before {
+  content: "\e900";
+  color: rgb(19, 22, 18);
+}
+.icon-bulb .path2:before {
+  content: "\e901";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-clock .path1:before {
+  content: "\e902";
+  color: rgb(19, 22, 18);
+}
+.icon-clock .path2:before {
+  content: "\e903";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-head .path1:before {
+  content: "\e904";
+  color: rgb(19, 22, 18);
+}
+.icon-head .path2:before {
+  content: "\e905";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-head .path3:before {
+  content: "\e906";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-arrow:before {
+  content: "\e907";
+}
+.icon-clip:before {
+  content: "\e908";
+}
+.icon-lang-down:before {
+  content: "\e909";
+}
+.icon-lang-up:before {
+  content: "\e90a";
+}
+.icon-line-banner-home:before {
+  content: "\e90b";
+}
+.icon-line-works-gal:before {
+  content: "\e90c";
+}
+.icon-r-line-works-banner:before {
+  content: "\e90d";
+}
+.icon-red-dot:before {
+  content: "\e90e";
+}
+.icon-services-banner-line:before {
+  content: "\e90f";
+}
+.icon-work-banner-line:before {
+  content: "\e910";
+}
+.icon-y-line-works-banner:before {
+  content: "\e911";
+}
+.icon-behance:before {
+  content: "\e912";
+}
+.icon-dribble:before {
+  content: "\e913";
+}
+.icon-facebook:before {
+  content: "\e914";
+}
+.icon-instagram:before {
+  content: "\e915";
+}
+.icon-linkedin:before {
+  content: "\e916";
+}
+.icon-logo:before {
+  content: "\e917";
+}
+.icon-404:before {
+  content: "\e918";
+}

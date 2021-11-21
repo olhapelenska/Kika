@@ -1,0 +1,73 @@
+.footer {
+  border-top: 0.5px solid #a7aea4;
+  position: relative;
+  overflow: hidden;
+  background-color: inherit;
+
+  &__line-icon {
+    position: absolute;
+    top: 60px;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 265px 0 62px;
+  }
+
+  &__confidentiality {
+  }
+
+  &__arrow-up {
+    display: block;
+    padding-bottom: 40px;
+    position: relative;
+
+    .arrow-elipse {
+      position: absolute;
+      top: -75%;
+      left: -40%;
+    }
+  }
+
+  &__confidentiality-text {
+  }
+
+  &__confidentiality-caption {
+    width: fit-content;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15.6px;
+    color: #a7aea4;
+    border-bottom: 0.5px solid #a7aea4;
+    margin-bottom: 10px;
+  }
+
+  &__confidentiality-copyright {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15.6px;
+  }
+
+  &__contacts {
+    text-align: end;
+  }
+
+  &__contacts-text {
+    padding-bottom: 10px;
+  }
+
+  &__contacts-mail {
+    display: block;
+    padding-bottom: 10px;
+  }
+
+  &__contacts-tel {
+    display: block;
+    padding-bottom: 30px;
+  }
+
+  &__media-icons {
+    padding-left: 20px;
+  }
+}

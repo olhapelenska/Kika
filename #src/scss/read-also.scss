@@ -1,0 +1,39 @@
+.read-also {
+  &__container {
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 62.4px;
+    padding: 55px 0 70px;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: 190px;
+    border-top: 0.5px solid #131612;
+    padding-top: 20px;
+  }
+
+  &__item {
+    display: block;
+  }
+
+  &__item-content {
+    padding: 0;
+    margin: 10px;
+  }
+
+  &__item-img {
+  }
+
+  &__item-title {
+  }
+
+  &__item-text {
+  }
+}
+.gallery-img {
+}

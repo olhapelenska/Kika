@@ -1,0 +1,25 @@
+.gallery-work {
+  background-color: #0f120e;
+  padding: 210px 26px;
+
+  &__row-top {
+    display: flex;
+    padding-bottom: 140px;
+    // transform: translateX(-50%);
+    transition: transform 2s;
+  }
+
+  &__row-item {
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+
+  &__row-bottom {
+    display: flex;
+  }
+
+  img {
+    width: 100%;
+  }
+}

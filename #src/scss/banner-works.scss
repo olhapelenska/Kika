@@ -1,0 +1,43 @@
+.banner-works {
+  &__container {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 7px;
+      height: 199px;
+      bottom: -91px;
+      right: 121px;
+      background-color: #ebff00;
+      transform: translateX(50%);
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 7px;
+      height: 283px;
+      bottom: 8px;
+      right: 90px;
+      background-color: #fb1010;
+      transform: translateX(50%);
+    }
+  }
+
+  &__inner {
+    padding: 167px 0 215px;
+    margin-left: 100px;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25px;
+  }
+
+  &__text {
+    width: 375px;
+    margin: 0 auto;
+  }
+}
