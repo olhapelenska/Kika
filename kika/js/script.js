@@ -1,5 +1,5 @@
 let iconMenu = document.querySelector(".icon-menu");
-if (iconMenu != null) {
+if (iconMenu) {
   let delay = 500;
   let menuBody = document.querySelector(".menu__body");
   let bodyHide = document.querySelector("body");
@@ -23,12 +23,15 @@ function menu_close() {
 //banner animation
 
 let cursPos = document.querySelector(".banner");
-cursPos.style.setProperty("--x", "42%");
-cursPos.style.setProperty("--y", "57%");
-cursPos.addEventListener("mousemove", (e) => {
-  cursPos.style.setProperty("--x", e.pageX + "px");
-  cursPos.style.setProperty("--y", e.pageY + "px");
-});
+
+if (cursPos) {
+  cursPos.style.setProperty("--x", "42%");
+  cursPos.style.setProperty("--y", "57%");
+  cursPos.addEventListener("mousemove", (e) => {
+    cursPos.style.setProperty("--x", e.pageX + "px");
+    cursPos.style.setProperty("--y", e.pageY + "px");
+  });
+}
 
 //form animation
 
@@ -44,14 +47,14 @@ $("input").on("focusout", function () {
 
 //eyeball animation
 
-let eyeBall = document.querySelector(".eyeball"),
-  pupil = document.querySelector(".pupil"),
-  eyeArea = getCoords(eyeBall),
-  pupilArea = getCoords(pupil),
-  R = eyeArea.width / 2,
-  r = pupilArea.width / 2,
-  centerX = eyeArea.left + R,
-  centerY = eyeArea.top + R;
+let eyeBall = [...document.querySelectorAll(".eyeball")],
+  pupil = [...document.querySelectorAll(".pupil")],
+  eyeArea = eyeBall.map((el) => getCoords(el)),
+  pupilArea = pupil.map((el) => getCoords(el)),
+  R = eyeArea.map((el) => el.width / 2),
+  r = pupilArea.map((el) => el.width / 2),
+  centerX = eyeArea.map((el, index) => el.left + R[index]),
+  centerY = eyeArea.map((el, index) => el.top + R[index]);
 
 function getCoords(elem) {
   let box = elem.getBoundingClientRect();
@@ -67,19 +70,26 @@ function getCoords(elem) {
   };
 }
 
+console.log(centerX);
 console.log(eyeArea);
 console.log(pupilArea);
 
 document.addEventListener("mousemove", (e) => {
-  let x = e.pageX - centerX,
-    y = e.pageY - centerY,
-    theta = Math.atan2(y, x),
-    angle = (theta * 180) / Math.PI + 360;
+  let x = centerX.map((el) => e.pageX - el),
+    y = centerY.map((el) => e.pageY - el),
+    theta = x.map((el, index) => Math.atan2(y[index], el)),
+    angle = theta.map((el) => (el * 180) / Math.PI + 360);
+  console.log(x);
 
-  pupil.style.transform = `translateX(${R - r + "px"}) rotate(${
-    angle + "deg"
-  })`;
-  pupil.style.transformOrigin = `${r + "px"} center`;
+  pupil.forEach(
+    (el, index) =>
+      (el.style.transform = `translateX(${R[index] - r[index] + "px"}) rotate(${
+        angle[index] + "deg"
+      })`)
+  );
+  pupil.forEach(
+    (el, index) => (el.style.transformOrigin = `${r[index] + "px"} center`)
+  );
 });
 
 //header scroll animation
@@ -87,29 +97,63 @@ document.addEventListener("mousemove", (e) => {
 let lastScrollTop = 0,
   header = document.querySelector(".header"),
   button = document.querySelector(".our-works-home__all-works-button"),
-  brandwall = document.querySelector(".brandwall__img");
+  brandwall = document.querySelector(".brandwall__img"),
+  clientsBrandwall = document.querySelector(".clients__brandwall"),
+  rowTop = document.querySelector(".gallery-work__row-top"),
+  rowBottom = document.querySelector(".gallery-work__row-bottom");
 
 window.addEventListener("scroll", () => {
   let scrollTop = document.documentElement.scrollTop;
 
   if (scrollTop > lastScrollTop) {
     header.style.top = "-77px";
-    button.style.top = "40px";
 
-    if (brandwall != null) {
+    if (button) {
+      button.style.top = "40px";
+    }
+
+    if (brandwall) {
       brandwall.style.left = "-20%";
+    }
+
+    if (clientsBrandwall) {
+      clientsBrandwall.style.transform = "translateX(-20%)";
+    }
+
+    if (rowTop) {
+      rowTop.style.transform = "translateX(-20%)";
+    }
+
+    if (rowBottom) {
+      rowBottom.style.transform = "translateX(20%)";
     }
   } else {
     header.style.top = "0";
-    button.style.top = "117px";
 
-    if (brandwall != null) {
+    if (button) {
+      button.style.top = "117px";
+    }
+
+    if (brandwall) {
       brandwall.style.left = "0";
+    }
+
+    if (clientsBrandwall) {
+      clientsBrandwall.style.transform = "translateX(0)";
+    }
+
+    if (rowTop) {
+      rowTop.style.transform = "translateX(0)";
+    }
+
+    if (rowBottom) {
+      rowBottom.style.transform = "translateX(0)";
     }
   }
 
   if (scrollTop > 77) {
     header.style.backgroundColor = "#f3f3f3";
+    header.style.color = "#000";
   } else {
     header.style.backgroundColor = "transparent";
   }

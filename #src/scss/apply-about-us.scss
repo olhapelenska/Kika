@@ -108,6 +108,8 @@
   }
 
   &__vacancy-info-item {
+    display: flex;
+    align-items: center;
   }
 
   &__vacancy-info-item-text {
@@ -133,10 +135,12 @@
   &__vacancy-send-resume-button-text {
     writing-mode: vertical-lr;
     transform: rotate(180deg);
+    display: flex;
+    align-items: center;
   }
 
   .icon-arrow {
-    // text-orientation: sideways-right;
+    text-orientation: sideways-right;
     font-size: 12px;
     padding-top: 10px;
   }
