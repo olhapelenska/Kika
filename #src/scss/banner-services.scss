@@ -2,7 +2,7 @@
   &__container {
     position: relative;
 
-    &::after {
+    .icon-services-banner-line {
       position: absolute;
       content: "";
       width: 7px;
@@ -11,6 +11,8 @@
       right: 82px;
       background-color: #131612;
       transform: translateX(50%);
+      font-size: 0;
+      transition: 2s;
     }
   }
 

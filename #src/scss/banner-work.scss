@@ -19,6 +19,19 @@
   &__type {
     color: #ebff00;
     font-weight: 500;
+    position: relative;
+
+    .icon-work-banner-line {
+      position: absolute;
+      left: -500px;
+
+      top: 50%;
+      transform: translateY(-50%) translateX(-20px);
+      height: 3px;
+      width: 500px;
+      background-color: #ebff00;
+      font-size: 3px;
+    }
   }
 
   &__middle-content {

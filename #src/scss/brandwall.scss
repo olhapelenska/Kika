@@ -1,12 +1,27 @@
 .brandwall {
-  overflow: hidden;
+  padding-bottom: 200px;
+  position: relative;
 
-  &__img {
-    display: block;
-    width: 120%;
-    position: relative;
+  &__mask {
+    position: absolute;
     top: 0;
     left: 0;
-    transition: 2s;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/Rectangle.png);
+    // background-repeat: no-repeat;
+    // background-size: 100%;
+    mix-blend-mode: overlay;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  &__img {
+    width: 130%;
+    position: relative;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transition: 1s;
   }
 }

@@ -1,10 +1,22 @@
-@import url(https://fonts.googleapis.com/css?family=Inter:regular,500,600,700);
-@import url(https://fonts.googleapis.com/css?family=Mulish:600);
-@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff2") format("woff2"),
+      url("../fonts/#{$file_name}.woff") format("woff");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+@import "fonts";
+
+// @import url(https://fonts.googleapis.com/css?family=Inter:regular,500,600,700);
+// @import url(https://fonts.googleapis.com/css?family=Mulish:600);
+// @import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 
 @import "icons";
 $fontFamily: "Raleway", sans-serif;
-$fontFamilyQuotes: "Mulish", sans-serif;
+// $fontFamilyQuotes: "Mulish", sans-serif;
 @import "common";
 @import "icon-menu";
 @import "header";
@@ -34,3 +46,6 @@ $fontFamilyQuotes: "Mulish", sans-serif;
 @import "final-work";
 @import "points-article-1";
 @import "read-also";
+@import "reasons-article-2";
+@import "points-article-2";
+@import "slider-about-us";

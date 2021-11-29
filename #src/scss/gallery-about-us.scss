@@ -1,4 +1,18 @@
 .galery-about-us {
+  position: relative;
+  &__mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/Rectangle.png);
+    // background-repeat: no-repeat;
+    // background-size: 100%;
+    mix-blend-mode: overlay;
+    opacity: 1;
+    z-index: 1;
+  }
   &__container {
     padding-top: 230px;
     display: flex;

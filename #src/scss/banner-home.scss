@@ -2,15 +2,16 @@
   &__container {
     position: relative;
 
-    &::after {
+    .icon-line-banner-home {
       position: absolute;
-      content: "";
+      right: 0;
+      bottom: 0;
+      background-color: #131612;
       width: 7px;
       height: 290px;
-      bottom: 0;
-      right: 0;
-      background-color: #131612;
       transform: translateX(50%);
+      font-size: 0;
+      transition: 2s;
     }
   }
 

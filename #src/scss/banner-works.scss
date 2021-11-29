@@ -2,7 +2,7 @@
   &__container {
     position: relative;
 
-    &::before {
+    .icon-y-line-works-banner {
       position: absolute;
       content: "";
       width: 7px;
@@ -11,9 +11,11 @@
       right: 121px;
       background-color: #ebff00;
       transform: translateX(50%);
+      transition: 2s;
+      font-size: 0;
     }
 
-    &::after {
+    .icon-r-line-works-banner {
       position: absolute;
       content: "";
       width: 7px;
@@ -22,6 +24,8 @@
       right: 90px;
       background-color: #fb1010;
       transform: translateX(50%);
+      transition: 2s;
+      font-size: 0;
     }
   }
 

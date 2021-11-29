@@ -1,4 +1,18 @@
 .apply {
+  position: relative;
+  &__mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/Rectangle.png);
+    // background-repeat: no-repeat;
+    // background-size: 100%;
+    mix-blend-mode: overlay;
+    opacity: 1;
+    z-index: 1;
+  }
   &__container {
     padding: 230px 0;
   }
@@ -44,6 +58,13 @@
     font-weight: 500;
     font-size: 32px;
     line-height: 41.6px;
+    display: flex;
+
+    .icon-arrow {
+      padding-left: 10px;
+      font-size: 8px;
+      color: #fb1010;
+    }
   }
 
   &__vacancy {
@@ -88,7 +109,7 @@
 
   &__vacancy-info {
     width: 58%;
-    padding: 0 0 50px 102px;
+    padding: 0 0 20px 102px;
   }
 
   &__vacancy-info-content {
@@ -109,10 +130,12 @@
 
   &__vacancy-info-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    padding-bottom: 30px;
   }
 
   &__vacancy-info-item-text {
+    padding-left: 20px;
   }
 
   &__vacancy-send-resume {
@@ -149,5 +172,7 @@
   }
 
   &__vacancy-title-note {
+    margin-bottom: 24px;
+    color: #a7aea4;
   }
 }
