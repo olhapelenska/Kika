@@ -10,6 +10,11 @@
     font-weight: 500;
     font-size: 28px;
     line-height: 36.4px;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+      line-height: 23.4px;
+    }
   }
 
   &__position {
@@ -17,6 +22,11 @@
     font-size: 18px;
     line-height: 23.4px;
     color: #a7aea4;
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+      line-height: 15.6px;
+    }
   }
 }
 

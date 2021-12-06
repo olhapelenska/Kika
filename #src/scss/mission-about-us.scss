@@ -23,5 +23,10 @@
     line-height: 62.4px;
     padding: 140px 0 213px;
     margin-left: 100px;
+
+    @media (max-width: 768px) {
+      // padding: 0;
+      margin: 0;
+    }
   }
 }

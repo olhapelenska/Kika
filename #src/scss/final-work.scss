@@ -17,23 +17,47 @@
     padding: 140px 0;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 768px) {
+      padding: 85px 0;
+    }
   }
 
   &__img {
     margin-bottom: 140px;
+    @media (max-width: 768px) {
+      margin-bottom: 85px;
+    }
   }
 
   &__link {
     align-self: flex-end;
     margin-right: 100px;
+    border-bottom: none;
+    padding: 3px 4px;
+
+    @media (max-width: 768px) {
+      margin-right: 0;
+      align-self: center;
+    }
   }
 
   &__link-text {
     font-size: 64px;
     line-height: 83.2px;
 
+    @media (max-width: 768px) {
+      font-size: 28px;
+      line-height: 36.4px;
+    }
+
     .icon-arrow {
       font-size: 36px;
+
+      @media (max-width: 768px) {
+        font-size: 26px;
+        align-self: start;
+      }
     }
   }
 }

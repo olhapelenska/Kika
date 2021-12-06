@@ -1,4 +1,8 @@
 .banner-services {
+  @media (max-width: 1024px) {
+    background-image: url("../img/circles-services-mob.png");
+    background-size: cover;
+  }
   &__container {
     position: relative;
 
@@ -13,20 +17,41 @@
       transform: translateX(50%);
       font-size: 0;
       transition: 2s;
+
+      @media (max-width: 620px) {
+        display: none;
+      }
     }
   }
 
   &__inner {
     padding: 217px 0 205px;
     margin-left: 100px;
+
+    @media (max-width: 520px) {
+      margin-left: 0;
+      // padding: 110px 0 150px;
+    }
+
+    @media (max-width: 425px) {
+      padding: 110px 0 150px;
+    }
   }
 
   &__heading {
     padding-bottom: 25px;
+    @media (max-width: 425px) {
+      padding-bottom: 50px;
+    }
   }
 
   &__text {
     width: 356px;
     margin: 0 auto;
+
+    @media (max-width: 520px) {
+      margin-left: 0;
+      width: 95%;
+    }
   }
 }

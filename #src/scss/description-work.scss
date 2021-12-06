@@ -15,6 +15,11 @@
   }
   &__container {
     padding: 140px 0;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 85px 0;
+    }
   }
 
   &__content {
@@ -22,6 +27,15 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+
+    @media (max-width: 1000px) {
+      margin-left: 0px;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 34px;
+    }
   }
 
   &__link {
@@ -32,5 +46,13 @@
 
   &__paragraph {
     width: 53%;
+
+    @media (max-width: 768px) {
+      width: 70%;
+    }
+
+    @media (max-width: 425px) {
+      width: 100%;
+    }
   }
 }

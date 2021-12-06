@@ -16,10 +16,18 @@
 
   &__container {
     padding: 140px 0;
+
+    @media (max-width: 1024px) {
+      padding: 70px 0 90px;
+    }
   }
 
   &__point-1 {
     margin: 140px 0;
+
+    @media (max-width: 768px) {
+      margin: 70px 0;
+    }
 
     &:first-child {
       margin-top: 0;
@@ -33,21 +41,34 @@
   &__point-text {
     width: 67%;
     margin-left: 100px;
+
+    @media (max-width: 768px) {
+      margin: 0;
+      width: 100%;
+    }
   }
 
   &__point-title {
     font-weight: 600;
     font-size: 32px;
     line-height: 41.6px;
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+      line-height: 36.4px;
+    }
   }
 
   &__point-paragraph {
     width: 64%;
     margin-left: 100px;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 24.3px;
     padding: 50px 0 30px;
+
+    @media (max-width: 768px) {
+      margin: 0;
+      width: 100%;
+      padding: 40px 0;
+    }
   }
 
   &__point-img {
@@ -57,6 +78,11 @@
     width: 50%;
     margin: 0 auto;
     padding-top: 113px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      padding-top: 90px;
+    }
   }
 
   &__conclusion-text-1 {

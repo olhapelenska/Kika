@@ -17,6 +17,10 @@
 
   &__container {
     padding: 90px 100px 186px;
+
+    @media (max-width: 900px) {
+      padding: 70px 0 90px;
+    }
   }
 
   &__title {
@@ -25,6 +29,13 @@
     font-size: 22px;
     line-height: 29.7px;
     padding-bottom: 60px;
+
+    @media (max-width: 425px) {
+      padding-bottom: 50px;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24.3px;
+    }
   }
 
   &__items {
@@ -33,10 +44,25 @@
     grid-template-rows: 1fr 1fr;
     column-gap: 144px;
     row-gap: 127px;
+
+    @media (max-width: 1000px) {
+      row-gap: 65px;
+      column-gap: 75px;
+    }
+
+    @media (max-width: 620px) {
+      display: block;
+    }
   }
 
   &__item {
     display: flex;
+
+    @media (max-width: 620px) {
+      &:not(:last-child) {
+        padding-bottom: 70px;
+      }
+    }
   }
 
   &__svg {

@@ -2,6 +2,7 @@
   border-top: 0.5px solid #a7aea4;
   position: relative;
   background-color: inherit;
+  overflow: hidden;
 
   &__mask {
     position: absolute;
@@ -18,21 +19,36 @@
   }
 
   &__string {
-    position: absolute;
+    position: relative;
     z-index: 2;
-    top: 60px;
+    top: 0;
     width: 200%;
     left: 0;
-    transition: 1s;
+    transition: 3s;
+    padding-top: 10px;
+
+    @media (max-width: 768px) {
+      width: 400%;
+    }
   }
 
   &__container {
     display: flex;
     justify-content: space-between;
-    padding: 265px 0 62px;
+    padding: 140px 0 62px;
+
+    @media (max-width: 620px) {
+      flex-direction: column;
+      flex-flow: column-reverse;
+      padding: 60px 0 30px;
+    }
   }
 
   &__confidentiality {
+    @media (max-width: 620px) {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__arrow-up {
@@ -40,10 +56,31 @@
     padding-bottom: 40px;
     position: relative;
 
+    @media (max-width: 620px) {
+      padding-bottom: 0;
+    }
+
     .arrow-elipse {
       position: absolute;
-      top: -75%;
-      left: -40%;
+      top: -90%;
+      left: -45%;
+      width: auto;
+
+      @media (max-width: 620px) {
+        display: none;
+      }
+    }
+
+    .mob-elipse {
+      display: none;
+      @media (max-width: 620px) {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        transform: translateX(-35%) translateY(-40%);
+      }
     }
   }
 
@@ -70,6 +107,10 @@
 
   &__contacts {
     text-align: end;
+
+    @media (max-width: 620px) {
+      text-align: start;
+    }
   }
 
   &__contacts-text {
@@ -88,5 +129,11 @@
 
   &__media-icons {
     padding-left: 20px;
+
+    @media (max-width: 620px) {
+      width: 275px;
+      padding-left: 0;
+      padding-bottom: 75px;
+    }
   }
 }

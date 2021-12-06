@@ -15,17 +15,30 @@
   }
   &__container {
     padding: 230px 0;
+
+    @media (max-width: 768px) {
+      padding: 135px 0;
+    }
   }
 
   &__looking4u {
     display: flex;
     align-items: flex-end;
     padding-bottom: 30px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   &__looking4u-title {
     width: 42%;
     position: relative;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      padding-bottom: 80px;
+    }
 
     &::after {
       position: absolute;
@@ -35,6 +48,10 @@
       width: 0.5px;
       height: 100%;
       background-color: #131612;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
   }
 
@@ -43,12 +60,22 @@
     font-weight: 600;
     font-size: 48px;
     line-height: 62.4px;
+
+    @media (max-width: 620px) {
+      width: 100%;
+      font-size: 42px;
+      line-height: 54.6px;
+    }
   }
 
   &__looking4u-mail {
     width: 58%;
     display: flex;
     justify-content: flex-end;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 
   &__looking4u-mail-content {
@@ -72,6 +99,13 @@
     padding-top: 45px;
     position: relative;
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+      &:not(:nth-child(2)) {
+        display: none;
+      }
+    }
+
     &::before {
       position: absolute;
       content: "";
@@ -86,6 +120,12 @@
     width: 42%;
     position: relative;
 
+    @media (max-width: 768px) {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
     &::after {
       position: absolute;
       content: "";
@@ -94,6 +134,10 @@
       width: 0.5px;
       height: 100%;
       background-color: #131612;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
   }
 
@@ -110,11 +154,20 @@
   &__vacancy-info {
     width: 58%;
     padding: 0 0 20px 102px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 0;
+    }
   }
 
   &__vacancy-info-content {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   &__vacancy-info-description {
@@ -123,6 +176,9 @@
 
   &__vacancy-info-paragraph {
     padding-bottom: 35px;
+    @media (max-width: 768px) {
+      padding: 30px 0;
+    }
   }
 
   &__vacancy-info-list {
@@ -130,7 +186,10 @@
 
   &__vacancy-info-item {
     display: flex;
-    align-items: flex-start;
+
+    &:not(:last-child) {
+      align-items: center;
+    }
     padding-bottom: 30px;
   }
 
@@ -149,9 +208,14 @@
     padding: 28px 14px !important;
     display: flex;
 
+    @media (max-width: 768px) {
+      padding: 14px 28px !important;
+    }
+
     &:hover {
       background-color: #131612;
       color: #fff;
+      transform: none;
     }
   }
 
@@ -160,12 +224,21 @@
     transform: rotate(180deg);
     display: flex;
     align-items: center;
+
+    @media (max-width: 768px) {
+      writing-mode: unset;
+      transform: rotate(0deg);
+    }
   }
 
   .icon-arrow {
     text-orientation: sideways-right;
     font-size: 12px;
     padding-top: 10px;
+    @media (max-width: 768px) {
+      padding-top: 0px;
+      padding-left: 10px;
+    }
   }
 
   &__vacancy-title-content {
@@ -174,5 +247,20 @@
   &__vacancy-title-note {
     margin-bottom: 24px;
     color: #a7aea4;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__vacancy-title-note-mob {
+    display: none;
+    color: #a7aea4;
+
+    @media (max-width: 768px) {
+      display: block;
+      padding-top: 100px;
+      text-align: end;
+    }
   }
 }

@@ -21,6 +21,10 @@
     padding: 40px 0;
     position: relative;
 
+    @media (max-width: 1000px) {
+      flex-wrap: wrap;
+    }
+
     &::after {
       position: absolute;
       content: "";
@@ -51,6 +55,40 @@
     }
   }
 
+  // &__gal-info {
+  //   width: 31%;
+  //   display: flex;
+  //   flex-direction: column;
+  //   padding-right: 15px;
+  //   position: relative;
+
+  //   @media (max-width: 1000px) {
+  //     width: 100%;
+  //     padding-right: 0;
+  //     padding-top: 40px;
+  //   }
+
+  //   &::before {
+  //     position: absolute;
+  //     content: "";
+  //     right: 0;
+  //     width: 0.5px;
+  //     background: #fff;
+  //     top: -40px;
+  //     bottom: -40px;
+
+  //     @media (max-width: 1000px) {
+  //       display: none;
+  //     }
+  //   }
+  // }
+
+  &__gal-image-wrapper {
+    @media (max-width: 768px) {
+      order: -1;
+    }
+  }
+
   &__gal-heading {
     display: flex;
   }
@@ -61,6 +99,12 @@
     justify-content: space-between;
     position: relative;
 
+    @media (max-width: 1000px) {
+      padding-top: 40px;
+      flex-direction: row-reverse;
+      width: 100%;
+    }
+
     &::before {
       position: absolute;
       content: "";
@@ -69,17 +113,26 @@
       background: #fff;
       top: -40px;
       bottom: -40px;
+
+      @media (max-width: 1000px) {
+        display: none;
+      }
     }
   }
 
   &__gal-company-logo {
-    align-self: center;
+    @media (max-width: 1000px) {
+    }
   }
 
   &__gal-company-type {
     align-self: flex-end;
     display: flex;
     align-items: center;
+
+    @media (max-width: 1000px) {
+      align-self: unset;
+    }
   }
 
   &__gal-company-type-line {

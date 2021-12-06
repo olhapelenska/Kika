@@ -19,11 +19,19 @@
   &__container {
     padding: 120px 0;
     margin-bottom: 126px;
+
+    @media (max-width: 620px) {
+      padding: 60px 0 0;
+    }
   }
 
   &__content {
     display: flex;
     position: relative;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
 
     &::before {
       position: absolute;
@@ -31,6 +39,10 @@
       width: 100%;
       height: 0.5px;
       background: #fff;
+
+      @media (max-width: 620px) {
+        display: none;
+      }
     }
 
     &::after {
@@ -40,17 +52,28 @@
       height: 0.5px;
       bottom: 0;
       background: #fff;
+      @media (max-width: 620px) {
+        display: none;
+      }
     }
   }
 
   &__table {
     width: 67%;
+
+    @media (max-width: 900px) {
+      width: 100%;
+    }
   }
 
   &__table-item {
     display: flex;
     padding: 40px 0;
     position: relative;
+
+    @media (max-width: 620px) {
+      flex-direction: column;
+    }
 
     &::after {
       position: absolute;
@@ -83,6 +106,10 @@
     width: 62%;
     position: relative;
 
+    @media (max-width: 620px) {
+      width: 100%;
+    }
+
     &::before {
       position: absolute;
       content: "";
@@ -91,6 +118,28 @@
       background: #fff;
       top: -40px;
       bottom: -40px;
+
+      @media (max-width: 620px) {
+        display: none;
+      }
+    }
+  }
+
+  &__table-tags {
+    display: none;
+    @media (max-width: 620px) {
+      display: flex;
+      flex-wrap: wrap;
+      width: 70%;
+      padding-bottom: 45px;
+    }
+  }
+
+  &__table-tag {
+    display: none;
+    @media (max-width: 620px) {
+      display: inline;
+      margin: 15px 15px 0 0;
     }
   }
 
@@ -100,6 +149,12 @@
     padding-left: 45px;
     margin-bottom: 259px;
 
+    @media (max-width: 620px) {
+      width: 90%;
+      padding-left: 0;
+      margin-bottom: 45px;
+    }
+
     &::before {
       position: absolute;
       content: "";
@@ -107,6 +162,12 @@
       width: 5px;
       left: 0;
       background-color: #fff;
+
+      @media (max-width: 620px) {
+        width: 80px;
+        height: 5px;
+        top: -10px;
+      }
     }
   }
 
@@ -132,6 +193,9 @@
 
   &__table-list {
     width: 38%;
+    @media (max-width: 520px) {
+      width: 100%;
+    }
   }
 
   &__table-list-items {
@@ -208,6 +272,10 @@
     padding-top: 40px;
     position: relative;
 
+    @media (max-width: 900px) {
+      width: 100%;
+    }
+
     &::before {
       position: absolute;
       content: "";
@@ -215,6 +283,10 @@
       background: #fff;
       top: 20px;
       bottom: 20px;
+
+      @media (max-width: 900px) {
+        display: none;
+      }
     }
   }
 
@@ -232,7 +304,7 @@
     transition: 0.5s;
 
     @media (max-width: 1440px) {
-      width: 73%;
+      width: fit-content;
     }
   }
 }

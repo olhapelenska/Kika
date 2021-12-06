@@ -1,6 +1,10 @@
 .our-works-home {
   &__container {
     padding-bottom: 230px;
+
+    @media (max-width: 1000px) {
+      padding-bottom: 0;
+    }
   }
 
   &__title {
@@ -8,16 +12,34 @@
     font-size: 72px;
     line-height: 93.6px;
     padding: 85px 0 85px 100px;
+
+    @media (max-width: 1000px) {
+      padding: 60px 0 45px;
+    }
+
+    @media (max-width: 550px) {
+      font-size: 48px;
+      line-height: 62px;
+    }
   }
 
   &__gal {
     width: 76%;
+
+    @media (max-width: 1000px) {
+      width: 100%;
+    }
   }
 
   &__gal-item {
     display: flex;
     padding: 40px 0;
     position: relative;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      flex-flow: column-reverse;
+    }
 
     &::after {
       position: absolute;
@@ -28,6 +50,10 @@
       bottom: 0;
       right: 20px;
       left: 0;
+
+      @media (max-width: 1000px) {
+        right: 0;
+      }
     }
 
     &:first-child {
@@ -49,12 +75,20 @@
 
   &__gal-heading {
     display: flex;
+    @media (max-width: 768px) {
+      justify-content: space-between;
+    }
   }
 
   &__all-works {
     width: 24%;
     padding-top: 40px;
     position: relative;
+
+    @media (max-width: 1000px) {
+      width: fit-content;
+      margin: 0 auto;
+    }
 
     &::before {
       position: absolute;
@@ -63,6 +97,10 @@
       background: #fff;
       top: 20px;
       bottom: 20px;
+
+      @media (max-width: 1000px) {
+        display: none;
+      }
     }
   }
 
@@ -80,7 +118,7 @@
     transition: 0.5s;
 
     @media (max-width: 1440px) {
-      width: 75%;
+      width: fit-content;
     }
   }
 }

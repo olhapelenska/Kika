@@ -17,6 +17,10 @@
     padding-top: 230px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 620px) {
+      padding-top: 135px;
+    }
   }
 
   &__element-vertical {
@@ -26,10 +30,26 @@
     align-items: flex-end;
     justify-content: space-between;
     padding-bottom: 60px;
+
+    @media (max-width: 620px) {
+      width: 100%;
+      display: block;
+      margin-left: 0;
+      padding-bottom: 40px;
+    }
   }
 
   &__element-vertical-img {
     width: 77%;
+    @media (max-width: 620px) {
+      width: 100%;
+    }
+  }
+
+  &__element-eye {
+    @media (max-width: 620px) {
+      display: none;
+    }
   }
 
   .vertical-img {
@@ -39,6 +59,9 @@
   &__two-elements {
     display: flex;
     justify-content: space-between;
+    @media (max-width: 620px) {
+      flex-direction: column-reverse;
+    }
   }
 
   &__element-horisontal-left {
@@ -47,6 +70,10 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
+    @media (max-width: 620px) {
+      width: 100%;
+      display: block;
+    }
   }
 
   &__element-horisontal-left-img {
@@ -62,6 +89,10 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
+    @media (max-width: 620px) {
+      width: 100%;
+      display: block;
+    }
   }
 
   &__element-horisontal-right-img {

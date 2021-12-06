@@ -22,14 +22,25 @@
     font-size: 48px;
     line-height: 62.4px;
     padding: 55px 0 70px;
+
+    @media (max-width: 768px) {
+      font-size: 42px;
+      line-height: 54.6px;
+      padding-bottom: 20px;
+    }
   }
 
   &__items {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    padding-bottom: 190px;
+    padding: 20px 0 190px;
     border-top: 0.5px solid #131612;
-    padding-top: 20px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 10px;
+      padding-bottom: 90px;
+    }
   }
 
   &__item {
@@ -39,12 +50,22 @@
   &__item-content {
     padding: 0;
     margin: 10px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      margin: 0;
+    }
   }
 
   &__item-img {
   }
 
   &__item-title {
+    @media (max-width: 768px) {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 23.4px;
+    }
   }
 
   &__item-text {

@@ -39,6 +39,10 @@
   &__inside {
     width: 86%;
     margin: 0 auto;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 
   &__title {
@@ -48,11 +52,20 @@
 
   &__content {
     display: flex;
+    justify-content: space-between;
     padding-bottom: 240px;
+
+    @media (max-width: 520px) {
+      padding-bottom: 135px;
+    }
   }
 
   &__fill {
-    width: 60%;
+    width: 58%;
+
+    @media (max-width: 1000px) {
+      width: 100%;
+    }
   }
 
   &__exclamation {
@@ -68,15 +81,31 @@
     display: flex;
     justify-content: space-between;
     z-index: 1;
+
+    @media (max-width: 620px) {
+      flex-direction: column;
+    }
   }
 
   &__name {
+    @media (max-width: 620px) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__name,
+  &__tel {
     position: relative;
     width: 45%;
     border-bottom: 0.5px solid #a7aea4;
+
+    @media (max-width: 620px) {
+      width: 70%;
+    }
   }
 
-  &__label {
+  &__name-label,
+  &__tel-label {
     font-family: "Muller";
     display: block;
     position: absolute;
@@ -91,20 +120,20 @@
     top: -25px;
   }
 
-  &__input {
+  &__name-input,
+  &__tel-input {
     width: 100%;
     background: inherit;
-  }
-
-  &__tel {
-    position: relative;
-    width: 45%;
-    border-bottom: 0.5px solid #a7aea4;
   }
 
   &__send {
     display: flex;
     align-items: center;
+
+    @media (max-width: 520px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   // &__btn-wrapper {
@@ -124,17 +153,21 @@
     color: #a7aea4;
     padding-left: 50px;
     width: 48%;
+
+    @media (max-width: 520px) {
+      padding: 25px 0 0;
+      width: 64%;
+    }
   }
 
   &__get-in-touch {
-    width: 40%;
+    width: fit-content;
     display: flex;
     flex-direction: column;
-  }
 
-  &__get-in-touch-wrapper {
-    width: 62%;
-    align-self: flex-end;
+    @media (max-width: 1000px) {
+      display: none;
+    }
   }
 
   &__contacts {
@@ -146,6 +179,7 @@
   }
 
   &__media {
+    width: 90%;
   }
 
   &__media-text {

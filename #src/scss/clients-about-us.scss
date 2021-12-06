@@ -24,6 +24,15 @@
     line-height: 62.4px;
     padding-bottom: 65px;
     margin-left: 100px;
+
+    @media (max-width: 768px) {
+      margin-left: 0;
+    }
+    @media (max-width: 620px) {
+      font-size: 42px;
+      line-height: 54.6px;
+      padding-bottom: 80px;
+    }
   }
 
   &__brandwall {
@@ -35,6 +44,10 @@
     width: 200%;
     position: relative;
     z-index: 2;
+
+    @media (max-width: 768px) {
+      width: 400%;
+    }
   }
 
   .clients-ellipse {
@@ -42,5 +55,11 @@
     top: -30%;
     right: -30%;
     width: auto;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      top: 0;
+      right: -50%;
+    }
   }
 }
