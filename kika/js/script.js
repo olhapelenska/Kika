@@ -45,34 +45,32 @@ function menu_close() {
 
 //
 let cursor = document.querySelector(".cursor"),
-  link = document.querySelector("a"),
+  link = [...document.querySelectorAll("a")],
   homeGal = document.querySelector(".our-works-home__gal"),
   servicesTable = document.querySelector(".services__table"),
   worksGal = document.querySelector(".our-works__gal"),
-  sliderUs = document.querySelector(".slider-about-us");
+  sliderUs = document.querySelector(".slider-about-us"),
+  banner = document.querySelector(".banner");
 
 // console.log(linkCoords);
 if (cursor) {
-  let linkCoords = getCoords(link),
+  let linkCoords = link.map((el) => getCoords(el)),
     cursorCoords = getCoords(cursor),
     cursorRadius = cursorCoords.width / 2;
 
   document.addEventListener("mousemove", (e) => {
     cursor.style.top = e.pageY - cursorRadius + "px";
     cursor.style.left = e.pageX - cursorRadius + "px";
+    // linkCoords.forEach((el) => {
 
     if (
-      e.pageY >= linkCoords.top &&
-      e.pageY <= linkCoords.bottom &&
-      e.pageX >= linkCoords.left &&
-      e.pageX <= linkCoords.right
+      e.pageY >= linkCoords[0].top &&
+      e.pageY <= linkCoords[0].bottom &&
+      e.pageX >= linkCoords[0].left &&
+      e.pageX <= linkCoords[0].right
     ) {
       cursor.style.transform = "scale(2)";
-    } else {
-      cursor.style.transform = "none";
-    }
-
-    if (sliderUs) {
+    } else if (sliderUs) {
       let sliderUsCoords = getCoords(sliderUs);
 
       if (e.pageY >= sliderUsCoords.top && e.pageY <= sliderUsCoords.bottom) {
@@ -80,9 +78,7 @@ if (cursor) {
       } else {
         cursor.style.transform = "none";
       }
-    }
-
-    if (homeGal) {
+    } else if (homeGal) {
       let homeGalCoords = getCoords(homeGal);
 
       if (
@@ -95,8 +91,7 @@ if (cursor) {
       } else {
         cursor.style.transform = "none";
       }
-    }
-    if (worksGal) {
+    } else if (worksGal) {
       let worksGalCoords = getCoords(worksGal);
 
       if (
@@ -109,9 +104,7 @@ if (cursor) {
       } else {
         cursor.style.transform = "none";
       }
-    }
-
-    if (servicesTable) {
+    } else if (servicesTable) {
       let servicesTableCoords = getCoords(servicesTable);
 
       if (
@@ -124,20 +117,26 @@ if (cursor) {
       } else {
         cursor.style.transform = "none";
       }
+    } else {
+      cursor.style.transform = "none";
     }
   });
 }
 
-function changeCursor(block) {
-  let blockCoords = getCoords(block),
-    eCursor = document.querySelector(".e-cursor"),
-    eCursorDrag = document.querySelector(".e-cursorDrag");
-
-  if (eCursor) {
+function changeCursor(block, cursorWrapper, cursorInner) {
+  let cursorWrapperCoords = getCoords(cursorWrapper),
+    cursorWrapperRadius = cursorWrapperCoords.width / 2;
+  if (cursorWrapper) {
     document.addEventListener("mousemove", (e) => {
-      let y = e.clientY + "px",
-        x = e.clientX + "px";
-      eCursor.style.transform = `translate3d(${x}, ${y}, 0px)`;
+      // let y = e.clientY + "px",
+      //   x = e.clientX + "px";
+      // cursorWrapper.style.transform = `translate3d(${x}, ${y}, 0px)`;
+
+      cursorWrapper.style.top = e.clientY - cursorWrapperRadius + "px";
+      cursorWrapper.style.left = e.clientX - cursorWrapperRadius + "px";
+
+      // let sliderUsCoords = getCoords(sliderUs);
+      let blockCoords = getCoords(block);
 
       if (
         e.pageY >= blockCoords.top &&
@@ -145,70 +144,59 @@ function changeCursor(block) {
         e.pageX >= blockCoords.left &&
         e.pageX <= blockCoords.right
       ) {
-        eCursorDrag.style.transform = "rotate(0deg) scale(1, 1)";
-        eCursorDrag.style.opacity = "1";
+        cursorInner.style.transform = "rotate(0deg) scale(1, 1)";
+        cursorInner.style.opacity = "1";
       } else {
-        eCursorDrag.style.transform = "rotate(90deg) scale(0, 0)";
-        eCursorDrag.style.opacity = "0";
+        cursorInner.style.transform = "rotate(90deg) scale(0, 0)";
+        cursorInner.style.opacity = "0";
       }
     });
   }
 }
 
+let lookWrap = document.querySelector(".look-wrap"),
+  look = document.querySelector(".look");
+
 if (homeGal) {
-  let homeGalCoords = getCoords(homeGal);
-  changeCursor(homeGal);
+  changeCursor(homeGal, lookWrap, look);
 }
 
 if (worksGal) {
-  let worksGalCoords = getCoords(worksGal);
-  changeCursor(worksGal);
+  // changeCursor(worksGal);
 }
 
+let dragWrap = document.querySelector(".drag-wrap"),
+  drag = document.querySelector(".drag");
+
 if (sliderUs) {
-  let sliderUsCoords = getCoords(sliderUs);
-  changeCursor(sliderUs);
+  changeCursor(sliderUs, dragWrap, drag);
 }
 
 if (servicesTable) {
-  let servicesTableCoords = getCoords(servicesTable);
   changeCursor(servicesTable);
 }
 
 //banner animation
 
-let cursPos = document.querySelector(".banner");
+if (banner) {
+  let bannerCords = banner.getBoundingClientRect();
 
-if (cursPos) {
-  let bannerCords = cursPos.getBoundingClientRect();
-
-  cursPos.style.setProperty("--x", "42%");
-  cursPos.style.setProperty("--y", "57%");
-  cursPos.style.setProperty("--r", "150px");
-  cursPos.addEventListener("mousemove", (e) => {
-    cursPos.style.setProperty("--x", e.pageX + "px");
-    cursPos.style.setProperty("--y", e.pageY + "px");
+  banner.style.setProperty("--x", "42%");
+  banner.style.setProperty("--y", "57%");
+  banner.style.setProperty("--r", "150px");
+  banner.addEventListener("mousemove", (e) => {
+    banner.style.setProperty("--x", e.pageX + "px");
+    banner.style.setProperty("--y", e.pageY + "px");
   });
 
   document.addEventListener("mousemove", (e) => {
     if (bannerCords.height < e.pageY) {
-      cursPos.style.setProperty("--r", "0px");
+      banner.style.setProperty("--r", "0px");
     } else {
-      cursPos.style.setProperty("--r", "150px");
+      banner.style.setProperty("--r", "150px");
     }
   });
 }
-
-//
-
-// let galItem = document.querySelector(".our-works-home__gal-item"),
-//   galImg = document.querySelector(".our-works__gal-img");
-
-// if (galItem) {
-//   galItem.addEventListener("mouseover", (e) => {
-//     galImg.style.transform = "scale(1.1)";
-//   });
-// }
 
 //form animation
 
@@ -293,8 +281,6 @@ window.addEventListener("scroll", () => {
     //   $(brandwall).offset().top <=
     //   $(window).scrollTop() + $(window).height()
     // ) {
-    //   // console.log("el = ", $(brandwall).offset().top);
-    //   // console.log("window = ", $(window).scrollTop());
     //   brandwall.style.transform = "translateX(-20%)";
     //   console.log("down");
     // } else if (scrollTop < lastScrollTop) {
@@ -303,20 +289,19 @@ window.addEventListener("scroll", () => {
     // }
     let scrollTop = $(window).scrollTop(),
       viewportBottom = scrollTop + $(window).height();
-    console.log("jljk");
-    console.log("offset = ", $(brandwall).offset().top);
-    console.log("outerheight = ", $(brandwall).outerHeight);
-    console.log("scrolltop = ", scrollTop);
+    // console.log("jljk");
+    // console.log("offset = ", $(brandwall).offset().top);
+    // console.log("outerheight = ", $(brandwall).outerHeight);
+    // console.log("scrolltop = ", scrollTop);
     if (
       $(brandwall).offset().top + $(brandwall).outerHeight() > scrollTop &&
       $(brandwall).offset().top < viewportBottom
     ) {
       if (scrollTop < lastScrollTop) {
-        brandwall.style.transform = "translateX(-20%)";
-        console.log("down");
+        brandwall.style.transform = `translateX(-20%)`;
+        // console.log("down");
       } else {
         brandwall.style.transform = "translateX(0)";
-        console.log("up");
       }
     }
   }
@@ -477,11 +462,11 @@ $(".flowing-scroll").on("click", function () {
 });
 
 $(".move-area").mousemove(function (event) {
-  var eye = $(".eye");
-  var x = eye.offset().left + eye.width() / 2;
-  var y = eye.offset().top + eye.height() / 2;
-  var rad = Math.atan2(event.pageX - x, event.pageY - y);
-  var rot = rad * (180 / Math.PI) * -1 + 180;
+  let eye = $(".eye");
+  let x = eye.offset().left + eye.width() / 2;
+  let y = eye.offset().top + eye.height() / 2;
+  let rad = Math.atan2(event.pageX - x, event.pageY - y);
+  let rot = rad * (180 / Math.PI) * -1 + 180;
   eye.css({
     "-webkit-transform": "rotate(" + rot + "deg)",
     "-moz-transform": "rotate(" + rot + "deg)",
@@ -493,15 +478,40 @@ $(".move-area").mousemove(function (event) {
 //slider
 
 $(document).ready(function () {
-  $(".slider").slick({
-    arrows: false,
-    adaptiveHeight: true,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    speed: 1000,
-    easing: "ease",
-    infinite: true,
-    initialSlide: 0,
-    pauseOnHover: false,
-  });
+  if ($(".slider").length) {
+    $(".slider").slick({
+      arrows: false,
+      adaptiveHeight: true,
+      slidesToShow: 7,
+      slidesToScroll: 4,
+      speed: 1000,
+      easing: "ease",
+      infinite: true,
+      initialSlide: 0,
+      pauseOnHover: false,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 5,
+            slidesToScroll: 4,
+          },
+        },
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 3,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+          },
+        },
+      ],
+    });
+  }
 });

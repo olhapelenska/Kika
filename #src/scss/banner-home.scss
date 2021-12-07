@@ -1,17 +1,22 @@
 .banner-home {
+  @media (max-width: 1024px) {
+    background-image: url("../img/deco-maain-mob.png");
+    background-size: cover;
+  }
   &__container {
     position: relative;
 
     .icon-line-banner-home {
       position: absolute;
-      right: 0;
-      bottom: 0;
-      background-color: #131612;
+      content: "";
       width: 7px;
       height: 290px;
+      bottom: 0;
+      right: 0;
+      background-color: #131612;
       transform: translateX(50%);
-      font-size: 0;
       transition: 2s;
+      font-size: 0;
 
       @media (max-width: 620px) {
         height: 160px;
