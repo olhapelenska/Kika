@@ -20,20 +20,49 @@
   .ellipse-yel {
     position: absolute;
     width: auto;
-    top: 0;
+    top: 20%;
     left: 20%;
+
+    @media (max-width: 768px) {
+      left: -5%;
+    }
+
+    @media (max-width: 620px) {
+      left: -40%;
+    }
+
+    @media (max-width: 425px) {
+      top: 0;
+    }
   }
 
   .ellipse-gr {
     position: absolute;
     width: auto;
     right: -5%;
-    bottom: -25%;
+    bottom: -20%;
+
+    @media (max-width: 768px) {
+      right: -50%;
+    }
+
+    @media (max-width: 620px) {
+      right: -70%;
+    }
+
+    @media (max-width: 425px) {
+      right: -100%;
+    }
   }
 
   &__container {
     position: relative;
     z-index: 1;
+    padding: 200px 0;
+
+    @media (max-width: 520px) {
+      padding: 140px 0;
+    }
   }
 
   &__inside {
@@ -53,11 +82,6 @@
   &__content {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 240px;
-
-    @media (max-width: 520px) {
-      padding-bottom: 135px;
-    }
   }
 
   &__fill {
@@ -100,7 +124,7 @@
     border-bottom: 0.5px solid #a7aea4;
 
     @media (max-width: 620px) {
-      width: 70%;
+      width: 100%;
     }
   }
 
@@ -114,16 +138,23 @@
     font-size: 12px;
     line-height: 15.6px;
     transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+
+    @media (max-width: 620px) {
+      font-size: 14px;
+      line-height: 18.2px;
+    }
   }
 
   .active {
     top: -25px;
+    font-size: 9px;
   }
 
   &__name-input,
   &__tel-input {
     width: 100%;
     background: inherit;
+    font-family: "Muller";
   }
 
   &__send {
@@ -152,7 +183,6 @@
     line-height: 15.6px;
     color: #a7aea4;
     padding-left: 50px;
-    width: 48%;
 
     @media (max-width: 520px) {
       padding: 25px 0 0;

@@ -58,6 +58,15 @@
   }
 
   &__item-img {
+    overflow: hidden;
+
+    .gallery-img {
+      transition: transform 0.7s cubic-bezier(0.24, 0.06, 0.45, 0.95) 0s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
   }
 
   &__item-title {
@@ -70,6 +79,4 @@
 
   &__item-text {
   }
-}
-.gallery-img {
 }

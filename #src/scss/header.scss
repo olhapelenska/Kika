@@ -150,6 +150,9 @@
       }
     }
 
+    &__item {
+    }
+
     &__mob-link {
       display: none;
       @media (max-width: 1000px) {
@@ -182,6 +185,23 @@
       font-size: 16px;
       line-height: 20.8px;
 
+      transition: 0.5s;
+      padding: 4px 2px;
+
+      &:hover {
+        background-color: #131612;
+        color: #fff;
+
+        @media (max-width: 1000px) {
+          background-color: transparent;
+          color: #131612;
+        }
+      }
+
+      &.active {
+        color: #6fe239;
+      }
+
       @media (max-width: 1000px) {
         font-weight: 600;
         font-size: 42px;
@@ -191,10 +211,96 @@
     }
   }
 
-  &__language {
-    // width: 6%;
+  &__language-switcher {
+    font-style: normal;
+    display: block;
     position: relative;
+    transition: 0.2s;
+    pointer-events: auto;
     z-index: 5;
+
+    &:hover {
+      z-index: 6;
+
+      .header__language-dropdown {
+        display: block;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: -5px;
+          top: -5px;
+          bottom: -5px;
+          right: -5px;
+          z-index: -1;
+        }
+      }
+
+      .icon-lang-down {
+        display: none;
+      }
+
+      .icon-lang-up {
+        display: block;
+      }
+    }
+  }
+
+  &__language-dropdown {
+    position: absolute;
+    top: 100%;
+    border-radius: 12px;
+    margin-top: 5px;
+    display: none;
+    transition: 0.2s;
+  }
+
+  &__dropdown-item {
+    border-radius: 0;
+    border: 0;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    // cursor: pointer;
+    opacity: 0.5;
+    transition: 0.2s;
+    font-style: normal;
+    text-transform: uppercase;
+  }
+
+  &__top-dropdown-item {
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    position: relative;
+    transition: 0.2s;
+    opacity: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: -5px;
+      bottom: -5px;
+      right: -5px;
+      z-index: -1;
+    }
+
+    .icon-lang-down,
+    .icon-lang-up {
+      font-size: 7px;
+      color: #6fe239;
+      color: #fb1010;
+      margin-left: 7px;
+      width: 10px;
+      height: 6px;
+      transform: translateY(-25%);
+    }
+
+    .icon-lang-up {
+      display: none;
+    }
   }
 
   &__btn {

@@ -1,7 +1,6 @@
 .our-works-works {
   &__container {
     padding: 120px 0;
-    margin-bottom: 235px;
   }
 
   &__gal {
@@ -12,7 +11,7 @@
       content: "";
       width: 100%;
       height: 0.5px;
-      background: #fff;
+      background: #a7aea4;
     }
   }
 
@@ -30,7 +29,7 @@
       content: "";
       width: 100%;
       height: 0.5px;
-      background: #fff;
+      background: #a7aea4;
       bottom: 0;
       // right: 20px;
       left: 0;
@@ -91,6 +90,7 @@
 
   &__gal-heading {
     display: flex;
+    justify-content: space-between;
   }
 
   &__gal-company {
@@ -100,6 +100,7 @@
     position: relative;
 
     @media (max-width: 1000px) {
+      display: none;
       padding-top: 40px;
       flex-direction: row-reverse;
       width: 100%;
@@ -110,7 +111,7 @@
       content: "";
       left: 0;
       width: 0.5px;
-      background: #fff;
+      background: #a7aea4;
       top: -40px;
       bottom: -40px;
 

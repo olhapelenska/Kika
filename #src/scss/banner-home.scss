@@ -38,8 +38,16 @@
     display: flex;
     flex-direction: column;
 
+    @media (max-width: 1440px) {
+      font-size: 100px;
+      line-height: 110px;
+    }
+
     @media (max-width: 768px) {
       padding-bottom: 40px;
+    }
+    @media (max-width: 365px) {
+      font-size: 55px;
     }
   }
 
@@ -53,6 +61,10 @@
     @media (max-width: 425px) {
       align-self: flex-start;
       padding-left: 30px;
+    }
+
+    @media (max-width: 365px) {
+      padding-left: 0;
     }
   }
 
@@ -69,11 +81,15 @@
       display: block;
       padding-left: 50px;
     }
+
+    @media (max-width: 365px) {
+      padding-left: 0;
+    }
   }
 
   &__text {
     width: 366px;
-    padding-bottom: 35px;
+    padding: 5px 0 35px;
 
     @media (max-width: 768px) {
       padding-bottom: 57px;

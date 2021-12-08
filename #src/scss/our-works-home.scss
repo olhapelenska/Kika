@@ -46,7 +46,7 @@
       content: "";
       /* width: 100%; */
       height: 0.5px;
-      background: #fff;
+      background: #a7aea4;
       bottom: 0;
       right: 20px;
       left: 0;
@@ -75,9 +75,7 @@
 
   &__gal-heading {
     display: flex;
-    @media (max-width: 768px) {
-      justify-content: space-between;
-    }
+    justify-content: space-between;
   }
 
   &__all-works {
@@ -94,7 +92,7 @@
       position: absolute;
       content: "";
       width: 0.5px;
-      background: #fff;
+      background: #a7aea4;
       top: 20px;
       bottom: 20px;
 

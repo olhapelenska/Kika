@@ -47,7 +47,6 @@ function menu_close() {
 let cursor = document.querySelector(".cursor"),
   link = [...document.querySelectorAll("a")],
   homeGal = document.querySelector(".our-works-home__gal"),
-  servicesTable = document.querySelector(".services__table"),
   worksGal = document.querySelector(".our-works__gal"),
   sliderUs = document.querySelector(".slider-about-us"),
   banner = document.querySelector(".banner");
@@ -99,19 +98,6 @@ if (cursor) {
         e.pageY <= worksGalCoords.bottom &&
         e.pageX >= worksGalCoords.left &&
         e.pageX <= worksGalCoords.right
-      ) {
-        cursor.style.transform = "scale(0)";
-      } else {
-        cursor.style.transform = "none";
-      }
-    } else if (servicesTable) {
-      let servicesTableCoords = getCoords(servicesTable);
-
-      if (
-        e.pageY >= servicesTableCoords.top &&
-        e.pageY <= servicesTableCoords.bottom &&
-        e.pageX >= servicesTableCoords.left &&
-        e.pageX <= servicesTableCoords.right
       ) {
         cursor.style.transform = "scale(0)";
       } else {
@@ -170,10 +156,6 @@ let dragWrap = document.querySelector(".drag-wrap"),
 
 if (sliderUs) {
   changeCursor(sliderUs, dragWrap, drag);
-}
-
-if (servicesTable) {
-  changeCursor(servicesTable);
 }
 
 //banner animation
@@ -251,6 +233,20 @@ document.addEventListener("mousemove", (e) => {
   );
 });
 
+$(".move-area").mousemove(function (event) {
+  let eye = $(".eye");
+  let x = eye.offset().left + eye.width() / 2;
+  let y = eye.offset().top + eye.height() / 2;
+  let rad = Math.atan2(event.pageX - x, event.pageY - y);
+  let rot = rad * (180 / Math.PI) * -1 + 180;
+  eye.css({
+    "-webkit-transform": "rotate(" + rot + "deg)",
+    "-moz-transform": "rotate(" + rot + "deg)",
+    "-ms-transform": "rotate(" + rot + "deg)",
+    transform: "rotate(" + rot + "deg)",
+  });
+});
+
 //header scroll animation
 
 let lastScrollTop = 0,
@@ -270,7 +266,8 @@ let lastScrollTop = 0,
   headerButtonWork = document.querySelector(".banner-work .header__btn"),
   galleryWork = document.querySelector(".gallery-work"),
   footerBlock = document.querySelector(".footer"),
-  footerString = document.querySelector(".footer__string");
+  footerString = document.querySelector(".footer__string"),
+  media = window.matchMedia("(max-width: 768px)");
 
 window.addEventListener("scroll", () => {
   let scrollTop = document.documentElement.scrollTop;
@@ -381,7 +378,11 @@ window.addEventListener("scroll", () => {
     }
 
     if (bannerLineWorkYellow) {
-      bannerLineWorkYellow.style.bottom = "-91px";
+      if (media.matches) {
+        bannerLineWorkYellow.style.bottom = "-30px";
+      } else {
+        bannerLineWorkYellow.style.bottom = "-91px";
+      }
     }
 
     if (bannerLineWorkRed) {
@@ -515,3 +516,33 @@ $(document).ready(function () {
     });
   }
 });
+
+$(function () {
+  $("a").each(function () {
+    if ($(this).prop("href") == window.location.href) {
+      $(this).addClass("active");
+      $(this).parents("li").addClass("active");
+    }
+  });
+});
+
+const counters = document.querySelectorAll(".value");
+const speed = 500;
+if (counters) {
+  counters.forEach((counter) => {
+    const animate = () => {
+      const value = +counter.getAttribute("akhi");
+      const data = +counter.innerText;
+
+      const time = value / speed;
+      if (data < value) {
+        counter.innerText = Math.ceil(data + time);
+        setTimeout(animate, 1);
+      } else {
+        counter.innerText = value;
+      }
+    };
+
+    animate();
+  });
+}

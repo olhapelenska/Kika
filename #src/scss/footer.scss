@@ -35,12 +35,14 @@
   &__container {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     padding: 140px 0 62px;
 
     @media (max-width: 620px) {
       flex-direction: column;
       flex-flow: column-reverse;
       padding: 60px 0 30px;
+      align-items: initial;
     }
   }
 

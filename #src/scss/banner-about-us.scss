@@ -101,6 +101,18 @@
     font-weight: 400;
     font-size: 10px;
     line-height: 13px;
+    font-family: "Muller";
+
+    .value {
+      width: 13px;
+      display: inline-block;
+      text-align: end;
+
+      @media (max-width: 1000px) {
+        width: 0;
+        height: 13px;
+      }
+    }
 
     @media (max-width: 1000px) {
       writing-mode: vertical-lr;

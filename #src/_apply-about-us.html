@@ -232,5 +232,124 @@
         </div>
       </div>
     </div>
+    <div class="modal" id="modal">
+      <div class="modal__mask"></div>
+
+      <button data-close-button class="modal__close-button">
+        <svg
+          width="16"
+          height="17"
+          class="modal__close-button-svg"
+          viewBox="0 0 16 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M6.41271 8.14315L0.207084 14.3488L1.6213 15.763L7.82693 9.55736L14.3482 16.0786L15.7624 14.6644L9.24114 8.14315L15.7634 1.62086L14.3492 0.206642L7.82693 6.72893L1.62029 0.522291L0.206074 1.9365L6.41271 8.14315Z"
+            fill="#3D3E3C"
+          />
+        </svg>
+      </button>
+      <div class="modal__deco">
+        <img src="./img/modal-deco.png" alt="deco" />
+      </div>
+      <div class="modal__circles">
+        <img src="./img/modal-circles.png" alt="circles" />
+      </div>
+      <div class="modal__body">
+        <div class="modal__title">Front-end developer</div>
+        <form class="modal__form" action="">
+          <div class="modal__name">
+            <label class="share-ideas__name-label" for="name">Ваше имя</label>
+            <input
+              class="modal__name-input"
+              type="text"
+              id="name"
+              name="name"
+            />
+          </div>
+          <div class="modal__tel">
+            <label class="modal__tel-label" for="phone">Ваш телефон</label>
+            <input
+              class="modal__tel-input"
+              type="tel"
+              id="phone"
+              name="phone"
+            />
+          </div>
+          <div class="modal__mail">
+            <label class="modal__mail-label" for="mail">Ваш e-mail</label>
+            <input
+              class="modal__mail-input"
+              type="text"
+              id="mail"
+              name="mail"
+            />
+          </div>
+          <div class="modal__resume">
+            <label class="modal__resume-label" for="resume"
+              >Резюме или профиль LinkedIn</label
+            >
+            <input
+              class="modal__resume-input"
+              type="text"
+              id="resume"
+              name="resume"
+            />
+          </div>
+        </form>
+        <div class="modal__send">
+          <button class="modal__send-btn btn">
+            <span class="modal__btn-text">
+              Отправить<span class="icon-arrow"></span>
+            </span>
+          </button>
+          <div class="modal__send-paragraph">
+            Нажимая эту кнопку, вы соглашаетесь <br />
+            на обработку персональных данных
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="modal-overlay"></div>
+    <div class="modal-thanks" id="modal-thanks">
+      <div class="modal-thanks__mask"></div>
+      <button data-close-button class="modal-thanks__close-button">
+        <svg
+          width="16"
+          height="17"
+          class="modal__close-button-svg"
+          viewBox="0 0 16 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M6.41271 8.14315L0.207084 14.3488L1.6213 15.763L7.82693 9.55736L14.3482 16.0786L15.7624 14.6644L9.24114 8.14315L15.7634 1.62086L14.3492 0.206642L7.82693 6.72893L1.62029 0.522291L0.206074 1.9365L6.41271 8.14315Z"
+            fill="#3D3E3C"
+          />
+        </svg>
+      </button>
+      <div class="modal-thanks__deco">
+        <img src="./img/modal-deco-thanks.png" alt="deco" />
+      </div>
+      <div class="modal-thanks__deco-mob">
+        <img src="./img/modal-deco-thanks-mob.png" alt="deco" />
+      </div>
+      <div class="modal-thanks__circles">
+        <img src="./img/modal-circles-thanks.png" alt="circles" />
+      </div>
+      <div class="modal-thanks__body">
+        <div class="modal-thanks__title">Благодарим за ваше доверие!</div>
+        <p class="modal-thanks__paragraph">
+          Мы свяжемся с вами в ближайшее <br />
+          время и обсудим все детали
+        </p>
+      </div>
+    </div>
+    <div id="modal-thanks-overlay"></div>
   </div>
 </section>
