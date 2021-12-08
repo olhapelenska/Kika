@@ -135,19 +135,18 @@
     position: absolute;
     top: 0;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 15.6px;
     transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
 
     @media (max-width: 620px) {
-      font-size: 14px;
       line-height: 18.2px;
     }
   }
 
   .active {
     top: -25px;
-    font-size: 9px;
+    font-size: 12px;
   }
 
   &__name-input,
@@ -155,6 +154,7 @@
     width: 100%;
     background: inherit;
     font-family: "Muller";
+    font-size: 16px;
   }
 
   &__send {

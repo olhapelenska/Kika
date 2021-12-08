@@ -2431,7 +2431,7 @@ input {
   position: absolute;
   top: 0;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 15.6px;
   -webkit-transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
   -o-transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
@@ -2440,7 +2440,7 @@ input {
 
 .share-ideas .active {
   top: -25px;
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .share-ideas__name-input,
@@ -2448,6 +2448,7 @@ input {
   width: 100%;
   background: inherit;
   font-family: "Muller";
+  font-size: 16px;
 }
 
 .share-ideas__send {
@@ -5421,7 +5422,6 @@ input {
 
   .share-ideas__name-label,
   .share-ideas__tel-label {
-    font-size: 14px;
     line-height: 18.2px;
   }
 
