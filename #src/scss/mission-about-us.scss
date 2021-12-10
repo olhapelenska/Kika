@@ -52,6 +52,7 @@
 
   &__ellipse {
     position: absolute;
+    pointer-events: none;
     top: -5%;
     left: -15%;
   }
@@ -70,6 +71,8 @@
       align-self: center;
       font-size: 28px;
       line-height: 36.4px;
+      width: 90%;
+      padding-right: 20px;
     }
 
     &::after {
@@ -81,10 +84,10 @@
       width: 7px;
       background-color: #131612;
 
-      @media (max-width: 768px) {
+      @media (max-width: 425px) {
         margin-bottom: 346px;
-        right: -10px;
-        bottom: -100%;
+        right: -16px;
+        bottom: -20%;
       }
     }
   }
@@ -92,6 +95,7 @@
   &__stages {
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
     @media (max-width: 800px) {
       flex-direction: column;
     }
@@ -100,11 +104,18 @@
   &__stage {
     position: relative;
 
-    @media (max-width: 500px) {
-      margin-left: 0 !important;
-      margin-bottom: 180px;
-      margin-right: 0;
-      margin-top: 0;
+    @media (max-width: 768px) {
+      &:first-child {
+        margin-top: 100px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      margin: 0 auto 180px;
+
+      &:last-child {
+        margin-bottom: 140px;
+      }
     }
   }
 
@@ -152,6 +163,7 @@
 
   &__stage-img {
     position: absolute;
+    pointer-events: none;
   }
 
   &__stage-img1 {
@@ -280,7 +292,7 @@
       margin-top: 100px;
       margin-left: 400px;
     }
-    @media (max-width: 950px) {
+    @media (max-width: 900px) {
       margin-top: 200px;
       margin-left: 250px;
     }

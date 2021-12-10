@@ -34,7 +34,7 @@
     }
 
     @media (max-width: 425px) {
-      padding: 110px 0 150px;
+      padding: 120px 0 140px;
     }
   }
 
@@ -52,6 +52,16 @@
     @media (max-width: 520px) {
       margin-left: 0;
       width: 95%;
+    }
+  }
+
+  &__link {
+    display: none;
+
+    @media (max-width: 900px) {
+      display: block;
+      width: fit-content;
+      margin-top: 70px;
     }
   }
 }

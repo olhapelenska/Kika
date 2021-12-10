@@ -204,14 +204,13 @@
 
   &__table-list-item {
     display: flex;
-    // align-items: center;
     padding-bottom: 10px;
+  }
 
-    .icon-line-works-gal {
-      font-size: 3px;
-      color: #ebff00;
-      transform: translateY(7px);
-    }
+  &__icon-line {
+    // font-size: 3px;
+    // color: #ebff00;
+    transform: translateY(-5px);
   }
 
   &__table-list-item-text {
@@ -273,7 +272,7 @@
     position: relative;
 
     @media (max-width: 900px) {
-      width: 100%;
+      display: none;
     }
 
     &::before {
@@ -293,7 +292,7 @@
   &__order-service-button {
     background-color: #fff;
     color: #000;
-    width: 55%;
+    width: fit-content;
     margin: 0 auto;
     position: sticky;
     display: flex;
@@ -302,9 +301,5 @@
     left: 0;
     margin-bottom: 40px;
     transition: 0.5s;
-
-    @media (max-width: 1440px) {
-      width: fit-content;
-    }
   }
 }

@@ -48,6 +48,7 @@ let cursor = document.querySelector(".cursor"),
   link = [...document.querySelectorAll("a")],
   homeGal = document.querySelector(".our-works-home__gal"),
   worksGal = document.querySelector(".our-works__gal"),
+  servicesItems = document.querySelector(".our-services__item"),
   sliderUs = document.querySelector(".slider-about-us"),
   banner = document.querySelector(".banner");
 
@@ -79,7 +80,6 @@ if (cursor) {
       }
     } else if (homeGal) {
       let homeGalCoords = getCoords(homeGal);
-
       if (
         e.pageY >= homeGalCoords.top &&
         e.pageY <= homeGalCoords.bottom &&
@@ -98,6 +98,19 @@ if (cursor) {
         e.pageY <= worksGalCoords.bottom &&
         e.pageX >= worksGalCoords.left &&
         e.pageX <= worksGalCoords.right
+      ) {
+        cursor.style.transform = "scale(0)";
+      } else {
+        cursor.style.transform = "none";
+      }
+    } else if (servicesItems) {
+      let servicesItemsCoords = getCoords(servicesItems);
+
+      if (
+        e.pageY >= servicesItemsCoords.top &&
+        e.pageY <= servicesItemsCoords.bottom &&
+        e.pageX >= servicesItemsCoords.left &&
+        e.pageX <= servicesItemsCoords.right
       ) {
         cursor.style.transform = "scale(0)";
       } else {
@@ -122,13 +135,19 @@ function changeCursor(block, cursorWrapper, cursorInner) {
       cursorWrapper.style.left = e.clientX - cursorWrapperRadius + "px";
 
       // let sliderUsCoords = getCoords(sliderUs);
-      let blockCoords = getCoords(block);
+      let blockCoords = getCoords(block),
+        headerCoords = getCoords(header);
 
       if (
         e.pageY >= blockCoords.top &&
         e.pageY <= blockCoords.bottom &&
         e.pageX >= blockCoords.left &&
         e.pageX <= blockCoords.right
+        // &&
+        // e.pageY <= headerCoords.top &&
+        // e.pageY >= headerCoords.bottom &&
+        // e.pageX <= headerCoords.left &&
+        // e.pageX >= headerCoords.right
       ) {
         cursorInner.style.transform = "rotate(0deg) scale(1, 1)";
         cursorInner.style.opacity = "1";
@@ -146,9 +165,14 @@ let lookWrap = document.querySelector(".look-wrap"),
 if (homeGal) {
   changeCursor(homeGal, lookWrap, look);
 }
-
 if (worksGal) {
-  // changeCursor(worksGal);
+  changeCursor(worksGal, lookWrap, look);
+}
+
+let findOutWrap = document.querySelector(".find-out-wrap"),
+  findOut = document.querySelector(".find-out");
+if (servicesItems) {
+  changeCursor(servicesItems, findOutWrap, findOut);
 }
 
 let dragWrap = document.querySelector(".drag-wrap"),
@@ -180,7 +204,7 @@ if (banner) {
   });
 }
 
-//form animation
+// form animation
 
 $("input").on("focusin", function () {
   $(this).parent().find("label").addClass("active");
@@ -233,19 +257,19 @@ document.addEventListener("mousemove", (e) => {
   );
 });
 
-$(".move-area").mousemove(function (event) {
-  let eye = $(".eye");
-  let x = eye.offset().left + eye.width() / 2;
-  let y = eye.offset().top + eye.height() / 2;
-  let rad = Math.atan2(event.pageX - x, event.pageY - y);
-  let rot = rad * (180 / Math.PI) * -1 + 180;
-  eye.css({
-    "-webkit-transform": "rotate(" + rot + "deg)",
-    "-moz-transform": "rotate(" + rot + "deg)",
-    "-ms-transform": "rotate(" + rot + "deg)",
-    transform: "rotate(" + rot + "deg)",
-  });
-});
+// $(".move-area").mousemove(function (event) {
+//   let eye = $(".eye");
+//   let x = eye.offset().left + eye.width() / 2;
+//   let y = eye.offset().top + eye.height() / 2;
+//   let rad = Math.atan2(event.pageX - x, event.pageY - y);
+//   let rot = rad * (180 / Math.PI) * -1 + 180;
+//   eye.css({
+//     "-webkit-transform": "rotate(" + rot + "deg)",
+//     "-moz-transform": "rotate(" + rot + "deg)",
+//     "-ms-transform": "rotate(" + rot + "deg)",
+//     transform: "rotate(" + rot + "deg)",
+//   });
+// });
 
 //header scroll animation
 
@@ -267,6 +291,7 @@ let lastScrollTop = 0,
   galleryWork = document.querySelector(".gallery-work"),
   footerBlock = document.querySelector(".footer"),
   footerString = document.querySelector(".footer__string"),
+  headerMask = document.querySelector(".header__mask"),
   media = window.matchMedia("(max-width: 768px)");
 
 window.addEventListener("scroll", () => {
@@ -348,11 +373,11 @@ window.addEventListener("scroll", () => {
     }
 
     if (bannerLineWorkYellow) {
-      bannerLineWorkYellow.style.bottom = "-130px";
+      bannerLineWorkYellow.style.bottom = "-76px";
     }
 
     if (bannerLineWorkRed) {
-      bannerLineWorkRed.style.bottom = "-130px";
+      bannerLineWorkRed.style.bottom = "-76px";
     }
 
     if (bannerLineServices) {
@@ -462,19 +487,25 @@ $(".flowing-scroll").on("click", function () {
   return false;
 });
 
-$(".move-area").mousemove(function (event) {
-  let eye = $(".eye");
-  let x = eye.offset().left + eye.width() / 2;
-  let y = eye.offset().top + eye.height() / 2;
-  let rad = Math.atan2(event.pageX - x, event.pageY - y);
-  let rot = rad * (180 / Math.PI) * -1 + 180;
-  eye.css({
-    "-webkit-transform": "rotate(" + rot + "deg)",
-    "-moz-transform": "rotate(" + rot + "deg)",
-    "-ms-transform": "rotate(" + rot + "deg)",
-    transform: "rotate(" + rot + "deg)",
-  });
-});
+// function moveEye(eye) {
+//   $($(".wrapper")).mousemove(function (event) {
+//     let x = eye.offset().left + eye.width() / 2;
+//     let y = eye.offset().top + eye.height() / 2;
+//     let rad = Math.atan2(event.pageX - x, event.pageY - y);
+//     let rot = rad * (180 / Math.PI) * -1 + 180;
+//     eye.css({
+//       "-webkit-transform": "rotate(" + rot + "deg)",
+//       "-moz-transform": "rotate(" + rot + "deg)",
+//       "-ms-transform": "rotate(" + rot + "deg)",
+//       transform: "rotate(" + rot + "deg)",
+//     });
+//   });
+// }
+
+// moveEye($(".eye-article"));
+// moveEye($(".eye-blog"));
+// moveEye($(".eye-about-us"));
+// moveEye($(".eye-home"));
 
 //slider
 
@@ -546,3 +577,21 @@ if (counters) {
     animate();
   });
 }
+
+$(document).ready(function () {
+  $.each($(".checkbox"), function (index, val) {
+    if ($(this).find("input").prop("checked") == true) {
+      $(this).addClass("active");
+    }
+  });
+  $(document).on("click", ".checkbox", function (event) {
+    if ($(this).hasClass("active")) {
+      $(this).find("input").prop("checked", false);
+    } else {
+      $(this).find("input").prop("checked", true);
+    }
+    $(this).toggleClass("active");
+
+    return false;
+  });
+});

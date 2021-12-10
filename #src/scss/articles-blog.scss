@@ -197,11 +197,20 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     padding-bottom: 140px;
+    position: relative;
 
     @media (max-width: 768px) {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
     }
+  }
+
+  &__gallery-ellipse {
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 100%;
+    display: none;
   }
 
   &__gallery-item {
@@ -210,6 +219,16 @@
 
     @media (max-width: 768px) {
       border: none;
+
+      &:nth-child(2) {
+        grid-area: 1/1;
+      }
+      &:nth-child(5) {
+        grid-area: 3/2;
+      }
+      &:nth-child(12) {
+        grid-area: 6/1;
+      }
     }
 
     &:nth-child(4n) {

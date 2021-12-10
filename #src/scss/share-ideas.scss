@@ -98,6 +98,7 @@
 
   &__paragraph {
     padding-bottom: 60px;
+    font-size: 16px;
   }
 
   &__form {
@@ -134,19 +135,19 @@
     display: block;
     position: absolute;
     top: 0;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 16px;
-    line-height: 15.6px;
+    line-height: 20.8px;
     transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+
+    &.active {
+      top: -25px;
+      font-size: 12px;
+    }
 
     @media (max-width: 620px) {
       line-height: 18.2px;
     }
-  }
-
-  .active {
-    top: -25px;
-    font-size: 12px;
   }
 
   &__name-input,
@@ -155,6 +156,8 @@
     background: inherit;
     font-family: "Muller";
     font-size: 16px;
+    font-weight: 300;
+    line-height: 20.8px;
   }
 
   &__send {
@@ -202,10 +205,12 @@
 
   &__contacts {
     padding-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
   &__contacts-text {
-    padding-bottom: 10px;
   }
 
   &__media {
@@ -218,5 +223,116 @@
     font-size: 12px;
     line-height: 15.6px;
     padding-bottom: 10px;
+  }
+}
+
+.share-ideas-extended {
+  &__container {
+    padding: 200px 0 130px;
+
+    @media (max-width: 620px) {
+      padding: 50px 0 100px;
+    }
+  }
+
+  &__content {
+    gap: 60px;
+  }
+
+  &__fill {
+    width: 61%;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__checkboxes {
+    display: flex;
+    width: 346px;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 0 70px;
+  }
+
+  &__checkboxes-title {
+  }
+
+  &__checkbox {
+    padding: 4px 15px;
+    border: 1px solid #131612;
+    border-radius: 15px;
+    transition: all 0.3s;
+
+    &.active {
+      background-color: #ebff00;
+    }
+
+    input {
+      display: none;
+    }
+
+    label {
+      font-family: Muller;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 15.6px;
+    }
+  }
+
+  &__name-phone {
+    display: flex;
+    gap: 58px;
+
+    @media (max-width: 620px) {
+      flex-direction: column;
+      gap: 0px;
+    }
+  }
+
+  &__comment {
+    margin-top: 55px;
+    width: 488px;
+    position: relative;
+    border-bottom: 0.5px solid #a7aea4;
+
+    @media (max-width: 620px) {
+      width: 100%;
+      margin-top: 50px;
+    }
+
+    label {
+      font-family: "Muller";
+      display: block;
+      position: absolute;
+      top: 0;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 20.8px;
+      transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+      @media (max-width: 620px) {
+        line-height: 18.2px;
+      }
+
+      &.active {
+        top: -25px;
+        font-size: 12px;
+      }
+    }
+
+    input {
+      width: 100%;
+      background: inherit;
+      font-family: "Muller";
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 20.8px;
+    }
+  }
+
+  &__get-in-touch {
+    padding-top: 35px;
   }
 }
