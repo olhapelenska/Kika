@@ -58,10 +58,10 @@
   &__container {
     position: relative;
     z-index: 1;
-    padding: 200px 0;
+    padding: 210px 0 230px;
 
     @media (max-width: 520px) {
-      padding: 140px 0;
+      padding: 135px 0;
     }
   }
 
@@ -294,16 +294,16 @@
 
   &__comment {
     margin-top: 55px;
-    width: 488px;
+    width: 100%;
     position: relative;
     border-bottom: 0.5px solid #a7aea4;
+    height: fit-content;
 
     @media (max-width: 620px) {
-      width: 100%;
       margin-top: 50px;
     }
 
-    label {
+    .label {
       font-family: "Muller";
       display: block;
       position: absolute;
@@ -312,6 +312,7 @@
       font-size: 16px;
       line-height: 20.8px;
       transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+      pointer-events: none;
       @media (max-width: 620px) {
         line-height: 18.2px;
       }
@@ -322,13 +323,33 @@
       }
     }
 
-    input {
+    textarea {
       width: 100%;
       background: inherit;
       font-family: "Muller";
       font-size: 16px;
       font-weight: 300;
       line-height: 20.8px;
+      padding-left: 0;
+      position: relative;
+      resize: none;
+    }
+
+    .clip {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    input {
+      position: absolute;
+      top: -15px;
+      right: 0px;
+      width: 40px;
+      height: 40px;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 5;
     }
   }
 

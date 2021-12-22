@@ -1,6 +1,28 @@
 .our-services {
   position: relative;
 
+  .eye {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background: #000;
+    /*   margin: 0px 15px; */
+    border-radius: 50%;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      top: 50%;
+      left: 12.5px;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background-color: #fff;
+      border-radius: 50%;
+    }
+  }
+
   &__mask {
     position: absolute;
     top: 0;

@@ -99,7 +99,8 @@ button {
   }
 }
 
-input {
+input,
+textarea {
   border: none;
   outline: none;
 }
@@ -146,7 +147,7 @@ input {
   transition: 200ms ease-in-out;
   // border: 1px solid black;
   // border-radius: 10px;
-  z-index: 10000;
+  z-index: 5;
   background: #f3f3f3;
   width: 80%;
   max-width: 80%;
@@ -175,6 +176,7 @@ input {
     align-self: center;
     padding-right: 110px;
     width: 45%;
+    position: relative;
     z-index: 2;
 
     @media (max-width: 1620px) {
@@ -224,6 +226,12 @@ input {
     }
   }
 
+  .clip {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
   &__name-label,
   &__tel-label,
   &__mail-label,
@@ -232,7 +240,7 @@ input {
     display: block;
     position: absolute;
     top: 0;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 16px;
     line-height: 20.8px;
     transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
@@ -250,7 +258,7 @@ input {
 
   .active {
     top: -25px;
-    font-size: 9px;
+    font-size: 12px;
   }
 
   &__name-input,
@@ -260,6 +268,20 @@ input {
     width: 100%;
     background: inherit;
     font-family: "Muller";
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20.8px;
+  }
+
+  &__file-input {
+    position: absolute;
+    top: -15px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 5;
   }
 
   &__send {
@@ -837,26 +859,6 @@ input {
   }
 }
 
-.eye-home {
-  position: relative;
-  display: inline-block;
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  background: #000;
-}
-
-.eye-home:after {
-  /*pupil*/
-  position: absolute;
-  bottom: 22.66px;
-  right: 13.33px;
-  width: 10px;
-  height: 10px;
-  background: #fff;
-  border-radius: 50%;
-  content: " ";
-}
 .eye-about-us {
   position: relative;
   display: inline-block;
@@ -876,41 +878,6 @@ input {
   background: #fff;
   border-radius: 50%;
   content: " ";
-}
-
-.eye-blog {
-  position: relative;
-  display: inline-block;
-  border-radius: 50%;
-  height: 125px;
-  width: 125px;
-  background: transparent;
-  border: 5px solid #131612;
-
-  @media (max-width: 425px) {
-    height: 68px;
-    width: 68px;
-  }
-}
-
-.eye-blog:after {
-  /*pupil*/
-  position: absolute;
-  bottom: 70.82px;
-  right: 41.66px;
-  width: 33px;
-  height: 33px;
-  background: #131612;
-  border-radius: 50%;
-
-  content: " ";
-
-  @media (max-width: 425px) {
-    bottom: 38.52px;
-    right: 22.66px;
-    width: 17.95px;
-    height: 17.95px;
-  }
 }
 
 .eye-article {

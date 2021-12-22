@@ -216,6 +216,21 @@ $("input").on("focusout", function () {
   }
 });
 
+$("textarea").on("focusin", function () {
+  $(this).parent().find(".label").addClass("active");
+});
+
+$("textarea").on("focusout", function () {
+  if (!this.value) {
+    $(this).parent().find(".label").removeClass("active");
+  }
+});
+
+function textAreaAdjust(element) {
+  element.style.height = "0px";
+  element.style.height = 0 + element.scrollHeight + "px";
+}
+
 //eyeball animation
 
 let eyeBall = [...document.querySelectorAll(".eyeball")],
@@ -275,6 +290,8 @@ document.addEventListener("mousemove", (e) => {
 
 let lastScrollTop = 0,
   header = document.querySelector(".header"),
+  headerEyeLogo = document.querySelector(".header__eye-logo"),
+  headerLogo = document.querySelector(".header__logo"),
   headerBurger = document.querySelectorAll(".banner-work .header__burger span"),
   homeButton = document.querySelector(".our-works-home__all-works-button"),
   servicesButton = document.querySelector(".services__order-service-button"),
@@ -330,7 +347,7 @@ window.addEventListener("scroll", () => {
 
   if (footerBlock) {
     let footerCoords = footerBlock.getBoundingClientRect();
-    if (footerCoords.top <= footerCoords.height) {
+    if (footerCoords.top <= innerHeight) {
       footerString.style.transform = "translateX(-10%)";
     }
   }
@@ -439,6 +456,12 @@ window.addEventListener("scroll", () => {
     header.style.backgroundColor = "#f3f3f3";
     header.style.color = "#131612";
     header.style.fill = "#131612";
+    // headerLogo.style.display = "none";
+    // headerEyeLogo.style.display = "block";
+    // headerLogo.style.opacity = "0";
+    // headerEyeLogo.style.opacity = "1";
+    headerLogo.style.transform = "translateY(-50%) scale(0)";
+    headerEyeLogo.style.transform = "translateY(-50%) scale(1)";
 
     if (headerButtonWork) {
       headerButtonWork.style.backgroundColor = "#131612";
@@ -454,6 +477,12 @@ window.addEventListener("scroll", () => {
     header.style.backgroundColor = "transparent";
     header.style.color = "inherit";
     header.style.fill = "inherit";
+    // headerLogo.style.display = "block";
+    // headerEyeLogo.style.display = "none";
+    // headerLogo.style.opacity = "1";
+    // headerEyeLogo.style.opacity = "0";
+    headerLogo.style.transform = "translateY(-50%) scale(1)";
+    headerEyeLogo.style.transform = "translateY(-50%) scale(0)";
 
     if (headerButtonWork) {
       headerButtonWork.style.backgroundColor = "#fff";
@@ -595,3 +624,17 @@ $(document).ready(function () {
     return false;
   });
 });
+
+document.querySelector("body").addEventListener("mousemove", eyeball);
+
+function eyeball() {
+  let eye = document.querySelectorAll(".eye");
+
+  eye.forEach(function (eye) {
+    let x = getCoords(eye).left + eye.clientWidth / 2;
+    let y = getCoords(eye).top + eye.clientHeight / 2;
+    let radian = Math.atan2(event.pageX - x, event.pageY - y);
+    let rot = radian * (180 / Math.PI) * -1 + 270;
+    eye.style.transform = "rotate(" + rot + "deg)";
+  });
+}

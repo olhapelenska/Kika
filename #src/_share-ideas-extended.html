@@ -73,14 +73,44 @@
               </div>
             </div>
             <div class="share-ideas-extended__comment">
-              <label class="share-ideas__comment-label" for="comment"
-                >Комментарий (опционально)</label
-              >
-              <input
-                class="share-ideas__comment-input"
-                type="text"
-                id="comment"
+              <div class="clip">
+                <svg
+                  width="21"
+                  height="21"
+                  viewBox="0 0 21 21"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_215_19399)">
+                    <path
+                      d="M4.16115 19.1049C2.87857 18.3644 2.43749 16.7183 3.17798 15.4357L10.5036 2.7474C11.5134 0.998323 13.758 0.396897 15.507 1.40673C17.2561 2.41656 17.8575 4.66111 16.8477 6.41019L11.1093 16.3493C10.9407 16.6414 10.5675 16.7414 10.2754 16.5728C9.98338 16.4042 9.88337 16.0309 10.052 15.7389L15.7903 5.79973C16.4636 4.63367 16.0626 3.13731 14.8966 2.46408C13.7305 1.79086 12.2341 2.19181 11.5609 3.35787L4.23534 16.0461C3.83133 16.7459 4.07185 17.6435 4.77161 18.0475C5.47137 18.4515 6.36899 18.211 6.773 17.5113L12.8776 6.9377C13.0123 6.70444 12.9321 6.40524 12.6989 6.27057C12.4656 6.1359 12.1664 6.21607 12.0318 6.44932L7.51432 14.2738C7.34571 14.5658 6.97245 14.6658 6.68041 14.4972C6.38837 14.3286 6.28835 13.9553 6.45696 13.6633L10.9744 5.83886C11.4457 5.02258 12.4933 4.74205 13.3094 5.21321C14.1254 5.68437 14.4063 6.73188 13.935 7.54816L7.83035 18.1217C7.08986 19.4043 5.44372 19.8454 4.16115 19.1049Z"
+                      fill="black"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_215_19399">
+                      <rect width="21" height="21" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <p class="share-ideas__comment-label label">
+                Комментарий (опционально)
+              </p>
+              <textarea
+                class="share-ideas__comment-textarea"
                 name="comment"
+                cols="40"
+                rows="1"
+                onkeyup="textAreaAdjust(this)"
+                style="overflow: hidden"
+              ></textarea>
+              <input
+                id="file-select"
+                type="file"
+                name="file"
+                accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+                class="share-ideas__file-input"
               />
             </div>
           </form>

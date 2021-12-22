@@ -1,6 +1,27 @@
 .reasons-article-2 {
   position: relative;
 
+  .eye {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    background: #131612;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      top: 50%;
+      left: 7.81px;
+      transform: translate(-50%, -50%);
+      width: 6.6px;
+      height: 6.6px;
+      background: #fff;
+      border-radius: 50%;
+    }
+  }
+
   &__mask {
     position: absolute;
     top: 0;

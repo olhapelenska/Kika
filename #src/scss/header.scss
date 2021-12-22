@@ -13,14 +13,40 @@
     justify-content: space-between;
   }
 
-  &__logo {
-    width: auto;
+  &__logo-wrapper {
     position: relative;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    // width: auto;
+    // position: relative;
     z-index: 5;
+    transition: 0.5s;
+    transform: translateY(-50%) scale(1);
+  }
+
+  &__eye-logo {
+    top: 0;
+    left: 0;
+    position: absolute;
+    // width: auto;
+    // position: relative;
+    z-index: 5;
+    transform: translateY(-50%) scale(0);
+    transition: 0.5s;
   }
 
   &__svg {
     width: 80px;
+    height: 39px;
+    fill: inherit;
+  }
+
+  &__eye-svg {
+    width: 39px;
     height: 39px;
     fill: inherit;
   }

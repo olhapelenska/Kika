@@ -1,5 +1,28 @@
 .articles-blog {
   position: relative;
+
+  .eye {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    height: 125px;
+    width: 125px;
+    background-color: transparent;
+    border: 5px solid #131612;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      top: 50%;
+      left: 39.0625px;
+      transform: translate(-50%, -50%);
+      width: 33px;
+      height: 33px;
+      background-color: #131612;
+      border-radius: 50%;
+    }
+  }
+
   &__mask {
     position: absolute;
     top: 0;

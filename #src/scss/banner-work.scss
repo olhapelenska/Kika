@@ -184,13 +184,7 @@
   }
 
   &__img {
-  }
-
-  .work-img {
+    background-image: url("../img/phone-map.jpg");
     width: 100%;
-    @media (max-width: 620px) {
-      height: 200px;
-      object-fit: cover;
-    }
   }
 }

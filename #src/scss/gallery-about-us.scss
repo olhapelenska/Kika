@@ -1,5 +1,27 @@
 .galery-about-us {
   position: relative;
+
+  .eye {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    background: #000;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      top: 50%;
+      left: 25px;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 50%;
+    }
+  }
+
   &__mask {
     position: absolute;
     top: 0;
