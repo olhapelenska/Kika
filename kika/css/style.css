@@ -2581,10 +2581,11 @@ textarea {
 .our-services__item {
   width: 50%;
   position: relative;
+  display: block;
 }
 
 .our-services__item:not(:last-child) {
-  padding-bottom: 140px;
+  margin-bottom: 140px;
 }
 
 .our-services__item:hover .elipse {
@@ -5392,7 +5393,7 @@ textarea {
   }
 
   .our-services__item:not(:last-child) {
-    padding-bottom: 80px;
+    margin-bottom: 80px;
   }
 
   .our-services__item:hover .elipse {

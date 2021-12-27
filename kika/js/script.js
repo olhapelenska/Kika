@@ -26,7 +26,6 @@ if (iconMenu) {
     menuBody.classList.toggle("_active");
     bodyHide.classList.toggle("_lock");
     header.classList.toggle("_active");
-    // document.querySelector("body").addEventListener('click', menu_close)
   });
 }
 function menu_close() {
@@ -37,90 +36,187 @@ function menu_close() {
   menuBody.classList.remove("_active");
   bodyHide.classList.remove("_lock");
   header.classList.remove("_active");
-
-  // document.querySelector("body").removeEventListener('click', menu_close)
 }
 
 //
 
 //
-let cursor = document.querySelector(".cursor"),
-  link = [...document.querySelectorAll("a")],
+
+let links = document.querySelectorAll("a"),
+  cursor = document.querySelector(".cursor"),
   homeGal = document.querySelector(".our-works-home__gal"),
   worksGal = document.querySelector(".our-works__gal"),
   servicesItems = document.querySelector(".our-services__item"),
   sliderUs = document.querySelector(".slider-about-us"),
   banner = document.querySelector(".banner");
 
-// console.log(linkCoords);
 if (cursor) {
-  let linkCoords = link.map((el) => getCoords(el)),
-    cursorCoords = getCoords(cursor),
+  let cursorCoords = getCoords(cursor),
     cursorRadius = cursorCoords.width / 2;
 
   document.addEventListener("mousemove", (e) => {
     cursor.style.top = e.pageY - cursorRadius + "px";
     cursor.style.left = e.pageX - cursorRadius + "px";
-    // linkCoords.forEach((el) => {
 
-    if (
-      e.pageY >= linkCoords[0].top &&
-      e.pageY <= linkCoords[0].bottom &&
-      e.pageX >= linkCoords[0].left &&
-      e.pageX <= linkCoords[0].right
-    ) {
-      cursor.style.transform = "scale(2)";
-    } else if (sliderUs) {
-      let sliderUsCoords = getCoords(sliderUs);
+    let f = false;
 
-      if (e.pageY >= sliderUsCoords.top && e.pageY <= sliderUsCoords.bottom) {
-        cursor.style.transform = "scale(0)";
-      } else {
-        cursor.style.transform = "none";
-      }
-    } else if (homeGal) {
-      let homeGalCoords = getCoords(homeGal);
+    links.forEach((el) => {
       if (
-        e.pageY >= homeGalCoords.top &&
-        e.pageY <= homeGalCoords.bottom &&
-        e.pageX >= homeGalCoords.left &&
-        e.pageX <= homeGalCoords.right
+        e.pageY >= getCoords(el).top &&
+        e.pageY <= getCoords(el).bottom &&
+        e.pageX >= getCoords(el).left &&
+        e.pageX <= getCoords(el).right
       ) {
-        cursor.style.transform = "scale(0)";
-      } else {
-        cursor.style.transform = "none";
+        f = true;
+        cursor.style.transform = "scale(2)";
       }
-    } else if (worksGal) {
-      let worksGalCoords = getCoords(worksGal);
 
-      if (
-        e.pageY >= worksGalCoords.top &&
-        e.pageY <= worksGalCoords.bottom &&
-        e.pageX >= worksGalCoords.left &&
-        e.pageX <= worksGalCoords.right
-      ) {
-        cursor.style.transform = "scale(0)";
-      } else {
-        cursor.style.transform = "none";
-      }
-    } else if (servicesItems) {
-      let servicesItemsCoords = getCoords(servicesItems);
+      if (sliderUs) {
+        let sliderUsCoords = getCoords(sliderUs);
 
-      if (
-        e.pageY >= servicesItemsCoords.top &&
-        e.pageY <= servicesItemsCoords.bottom &&
-        e.pageX >= servicesItemsCoords.left &&
-        e.pageX <= servicesItemsCoords.right
-      ) {
-        cursor.style.transform = "scale(0)";
-      } else {
-        cursor.style.transform = "none";
+        if (e.pageY >= sliderUsCoords.top && e.pageY <= sliderUsCoords.bottom) {
+          cursor.style.transform = "scale(0)";
+        } else {
+          cursor.style.transform = "none";
+        }
+      } else if (homeGal || servicesItems) {
+        let homeGalCoords = getCoords(homeGal),
+          servicesItemsCoords = getCoords(servicesItems);
+
+        if (
+          (e.pageY >= homeGalCoords.top &&
+            e.pageY <= homeGalCoords.bottom &&
+            e.pageX >= homeGalCoords.left &&
+            e.pageX <= homeGalCoords.right) ||
+          (e.pageY >= servicesItemsCoords.top &&
+            e.pageY <= servicesItemsCoords.bottom &&
+            e.pageX >= servicesItemsCoords.left &&
+            e.pageX <= servicesItemsCoords.right)
+        ) {
+          cursor.style.transform = "scale(0)";
+        }
+      } else if (worksGal) {
+        let worksGalCoords = getCoords(worksGal);
+
+        if (
+          e.pageY >= worksGalCoords.top &&
+          e.pageY <= worksGalCoords.bottom &&
+          e.pageX >= worksGalCoords.left &&
+          e.pageX <= worksGalCoords.right
+        ) {
+          cursor.style.transform = "scale(0)";
+        } else {
+          cursor.style.transform = "none";
+        }
+      } else if (servicesItems) {
+        //   servicesItems.forEach(function (el) {
+        //     if (
+        //       e.pageY >= getCoords(el).top &&
+        //       e.pageY <= getCoords(el).bottom &&
+        //       e.pageX >= getCoords(el).left &&
+        //       e.pageX <= getCoords(el).right
+        //     ) {
+        //       cursor.style.transform = "scale(0)";
+        //     } else {
+        //       cursor.style.transform = "none";
+        //     }
+        //   });
+        //   let servicesItemsCoords = getCoords(servicesItems);
+        //   console.log(servicesItemsCoords);
+        //   if (
+        //     e.pageY >= servicesItemsCoords.top &&
+        //     e.pageY <= servicesItemsCoords.bottom &&
+        //     e.pageX >= servicesItemsCoords.left &&
+        //     e.pageX <= servicesItemsCoords.right
+        //   ) {
+        //     cursor.style.transform = "scale(0)";
+        //   } else {
+        //     cursor.style.transform = "none";
+        //   }
       }
-    } else {
+    });
+    if (!f) {
       cursor.style.transform = "none";
     }
   });
 }
+
+// let cursor = document.querySelector(".cursor"),
+//   link = [...document.querySelectorAll("a")],
+//   homeGal = document.querySelector(".our-works-home__gal"),
+//   worksGal = document.querySelector(".our-works__gal"),
+//   servicesItems = document.querySelector(".our-services__item"),
+//   sliderUs = document.querySelector(".slider-about-us"),
+//   banner = document.querySelector(".banner");
+
+// if (cursor) {
+//   let linkCoords = link.map((el) => getCoords(el)),
+//     cursorCoords = getCoords(cursor),
+//     cursorRadius = cursorCoords.width / 2;
+
+//   document.addEventListener("mousemove", (e) => {
+//     cursor.style.top = e.pageY - cursorRadius + "px";
+//     cursor.style.left = e.pageX - cursorRadius + "px";
+//     // linkCoords.forEach((el) => {
+
+//     if (
+//       e.pageY >= linkCoords[0].top &&
+//       e.pageY <= linkCoords[0].bottom &&
+//       e.pageX >= linkCoords[0].left &&
+//       e.pageX <= linkCoords[0].right
+//     ) {
+//       cursor.style.transform = "scale(2)";
+//     } else if (sliderUs) {
+//       let sliderUsCoords = getCoords(sliderUs);
+
+//       if (e.pageY >= sliderUsCoords.top && e.pageY <= sliderUsCoords.bottom) {
+//         cursor.style.transform = "scale(0)";
+//       } else {
+//         cursor.style.transform = "none";
+//       }
+//     } else if (homeGal) {
+//       let homeGalCoords = getCoords(homeGal);
+//       if (
+//         e.pageY >= homeGalCoords.top &&
+//         e.pageY <= homeGalCoords.bottom &&
+//         e.pageX >= homeGalCoords.left &&
+//         e.pageX <= homeGalCoords.right
+//       ) {
+//         cursor.style.transform = "scale(0)";
+//       } else {
+//         cursor.style.transform = "none";
+//       }
+//     } else if (worksGal) {
+//       let worksGalCoords = getCoords(worksGal);
+
+//       if (
+//         e.pageY >= worksGalCoords.top &&
+//         e.pageY <= worksGalCoords.bottom &&
+//         e.pageX >= worksGalCoords.left &&
+//         e.pageX <= worksGalCoords.right
+//       ) {
+//         cursor.style.transform = "scale(0)";
+//       } else {
+//         cursor.style.transform = "none";
+//       }
+//     } else if (servicesItems) {
+//       let servicesItemsCoords = getCoords(servicesItems);
+
+//       if (
+//         e.pageY >= servicesItemsCoords.top &&
+//         e.pageY <= servicesItemsCoords.bottom &&
+//         e.pageX >= servicesItemsCoords.left &&
+//         e.pageX <= servicesItemsCoords.right
+//       ) {
+//         cursor.style.transform = "scale(0)";
+//       } else {
+//         cursor.style.transform = "none";
+//       }
+//     } else {
+//       cursor.style.transform = "none";
+//     }
+//   });
+// }
 
 function changeCursor(block, cursorWrapper, cursorInner) {
   let cursorWrapperCoords = getCoords(cursorWrapper),
@@ -231,17 +327,6 @@ function textAreaAdjust(element) {
   element.style.height = 0 + element.scrollHeight + "px";
 }
 
-//eyeball animation
-
-let eyeBall = [...document.querySelectorAll(".eyeball")],
-  pupil = [...document.querySelectorAll(".pupil")],
-  eyeArea = eyeBall.map((el) => getCoords(el)),
-  pupilArea = pupil.map((el) => getCoords(el)),
-  R = eyeArea.map((el) => el.width / 2),
-  r = pupilArea.map((el) => el.width / 2),
-  centerX = eyeArea.map((el, index) => el.left + R[index]),
-  centerY = eyeArea.map((el, index) => el.top + R[index]);
-
 function getCoords(elem) {
   let box = elem.getBoundingClientRect();
 
@@ -254,39 +339,6 @@ function getCoords(elem) {
     height: box.height,
   };
 }
-
-document.addEventListener("mousemove", (e) => {
-  let x = centerX.map((el) => e.pageX - el),
-    y = centerY.map((el) => e.pageY - el),
-    theta = x.map((el, index) => Math.atan2(y[index], el)),
-    angle = theta.map((el) => (el * 180) / Math.PI + 360);
-
-  pupil.forEach(
-    (el, index) =>
-      (el.style.transform = `translateX(${R[index] - r[index] + "px"}) rotate(${
-        angle[index] + "deg"
-      })`)
-  );
-  pupil.forEach(
-    (el, index) => (el.style.transformOrigin = `${r[index] + "px"} center`)
-  );
-});
-
-// $(".move-area").mousemove(function (event) {
-//   let eye = $(".eye");
-//   let x = eye.offset().left + eye.width() / 2;
-//   let y = eye.offset().top + eye.height() / 2;
-//   let rad = Math.atan2(event.pageX - x, event.pageY - y);
-//   let rot = rad * (180 / Math.PI) * -1 + 180;
-//   eye.css({
-//     "-webkit-transform": "rotate(" + rot + "deg)",
-//     "-moz-transform": "rotate(" + rot + "deg)",
-//     "-ms-transform": "rotate(" + rot + "deg)",
-//     transform: "rotate(" + rot + "deg)",
-//   });
-// });
-
-//header scroll animation
 
 let lastScrollTop = 0,
   header = document.querySelector(".header"),
@@ -313,43 +365,56 @@ let lastScrollTop = 0,
 
 window.addEventListener("scroll", () => {
   let scrollTop = document.documentElement.scrollTop;
-  if (brandwall) {
-    // let brandwallCords = brandwall.getBoundingClientRect();
-    // console.log(brandwallCords);
-    // if (
-    //   $(brandwall).offset().top <=
-    //   $(window).scrollTop() + $(window).height()
-    // ) {
-    //   brandwall.style.transform = "translateX(-20%)";
-    //   console.log("down");
-    // } else if (scrollTop < lastScrollTop) {
-    //   brandwall.style.transform = "translateX(0)";
-    //   console.log("up");
-    // }
-    let scrollTop = $(window).scrollTop(),
-      viewportBottom = scrollTop + $(window).height();
-    // console.log("jljk");
-    // console.log("offset = ", $(brandwall).offset().top);
-    // console.log("outerheight = ", $(brandwall).outerHeight);
-    // console.log("scrolltop = ", scrollTop);
-    if (
-      $(brandwall).offset().top + $(brandwall).outerHeight() > scrollTop &&
-      $(brandwall).offset().top < viewportBottom
-    ) {
-      if (scrollTop < lastScrollTop) {
-        brandwall.style.transform = `translateX(-20%)`;
-        // console.log("down");
-      } else {
-        brandwall.style.transform = "translateX(0)";
-      }
-    }
+  if (
+    image.getBoundingClientRect().top <= innerHeight &&
+    image.getBoundingClientRect().top >= -innerHeight
+  ) {
+    brandwall.style.transform = "translateX(" + window.pageYOffset / 5 + "px)";
   }
+
+  console.log(
+    image.getBoundingClientRect().top,
+    innerHeight,
+    image.getBoundingClientRect().bottom
+  );
+  // if (brandwall) {
+  //   // let brandwallCords = brandwall.getBoundingClientRect();
+  //   // console.log(brandwallCords);
+  //   // if (
+  //   //   $(brandwall).offset().top <=
+  //   //   $(window).scrollTop() + $(window).height()
+  //   // ) {
+  //   //   brandwall.style.transform = "translateX(-20%)";
+  //   //   console.log("down");
+  //   // } else if (scrollTop < lastScrollTop) {
+  //   //   brandwall.style.transform = "translateX(0)";
+  //   //   console.log("up");
+  //   // }
+  //   let scrollTop = $(window).scrollTop(),
+  //     viewportBottom = scrollTop + $(window).height();
+  //   // console.log("jljk");
+  //   // console.log("offset = ", $(brandwall).offset().top);
+  //   // console.log("outerheight = ", $(brandwall).outerHeight);
+  //   // console.log("scrolltop = ", scrollTop);
+  //   if (
+  //     $(brandwall).offset().top + $(brandwall).outerHeight() > scrollTop &&
+  //     $(brandwall).offset().top < viewportBottom
+  //   ) {
+  //     if (scrollTop < lastScrollTop) {
+  //       brandwall.style.transform = `translateX(-20%)`;
+  //       // console.log("down");
+  //     } else {
+  //       brandwall.style.transform = "translateX(0)";
+  //     }
+  //   }
+  // }
 
   if (footerBlock) {
     let footerCoords = footerBlock.getBoundingClientRect();
     if (footerCoords.top <= innerHeight) {
-      footerString.style.transform = "translateX(-10%)";
+      footerString.style.transform = "translateX(" + footerCoords.top + "px)";
     }
+    console.log(window.pageYOffset);
   }
 
   if (galleryWork) {
@@ -403,9 +468,9 @@ window.addEventListener("scroll", () => {
   } else {
     header.style.top = "0";
 
-    if (footerBlock) {
-      footerString.style.transform = "translateX(0)";
-    }
+    // if (footerBlock) {
+    //   footerString.style.transform = "translateX(0)";
+    // }
 
     if (homeButton) {
       homeButton.style.top = "117px";
@@ -499,6 +564,8 @@ window.addEventListener("scroll", () => {
   lastScrollTop = scrollTop;
 });
 
+let image = document.querySelector(".brandwall");
+
 //scroll-up footer
 
 $(".flowing-scroll").on("click", function () {
@@ -515,26 +582,6 @@ $(".flowing-scroll").on("click", function () {
   }
   return false;
 });
-
-// function moveEye(eye) {
-//   $($(".wrapper")).mousemove(function (event) {
-//     let x = eye.offset().left + eye.width() / 2;
-//     let y = eye.offset().top + eye.height() / 2;
-//     let rad = Math.atan2(event.pageX - x, event.pageY - y);
-//     let rot = rad * (180 / Math.PI) * -1 + 180;
-//     eye.css({
-//       "-webkit-transform": "rotate(" + rot + "deg)",
-//       "-moz-transform": "rotate(" + rot + "deg)",
-//       "-ms-transform": "rotate(" + rot + "deg)",
-//       transform: "rotate(" + rot + "deg)",
-//     });
-//   });
-// }
-
-// moveEye($(".eye-article"));
-// moveEye($(".eye-blog"));
-// moveEye($(".eye-about-us"));
-// moveEye($(".eye-home"));
 
 //slider
 

@@ -73,6 +73,7 @@
   &__item {
     width: 50%;
     position: relative;
+    display: block;
     // z-index: 1;
 
     @media (max-width: 768px) {
@@ -80,10 +81,10 @@
     }
 
     &:not(:last-child) {
-      padding-bottom: 140px;
+      margin-bottom: 140px;
 
       @media (max-width: 768px) {
-        padding-bottom: 80px;
+        margin-bottom: 80px;
       }
     }
 
