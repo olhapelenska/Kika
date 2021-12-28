@@ -22,7 +22,6 @@
     display: flex;
     padding-bottom: 140px;
     // transform: translateX(-50%);
-    transition: transform 2s;
 
     @media (max-width: 1024px) {
       padding-bottom: 60px;
@@ -42,7 +41,6 @@
 
   &__row-bottom {
     display: flex;
-    transition: transform 2s;
 
     @media (max-width: 1024px) {
       width: 200%;

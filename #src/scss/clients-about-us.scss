@@ -13,9 +13,7 @@
     mix-blend-mode: overlay;
     opacity: 1;
     z-index: 1;
-  }
-
-  &__container {
+    pointer-events: none;
   }
 
   &__title {
@@ -36,14 +34,9 @@
   }
 
   &__brandwall {
-    transition: 1s;
-    // width: 53%;
-  }
-
-  .clients-brandwall-img {
-    width: 200%;
     position: relative;
     z-index: 2;
+    width: 200%;
 
     @media (max-width: 768px) {
       width: 400%;

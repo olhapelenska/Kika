@@ -345,7 +345,7 @@ let lastScrollTop = 0,
   servicesButton = document.querySelector(".services__order-service-button"),
   brandwall = document.querySelector(".brandwall__img"),
   clientsBrandwall = document.querySelector(".clients__brandwall"),
-  clients = document.querySelector(".clients"),
+  // clients = document.querySelector(".clients"),
   rowTop = document.querySelector(".gallery-work__row-top"),
   rowBottom = document.querySelector(".gallery-work__row-bottom"),
   bannerLineHome = document.querySelector(".icon-line-banner-home"),
@@ -361,77 +361,54 @@ let lastScrollTop = 0,
 
 window.addEventListener("scroll", () => {
   let scrollTop = document.documentElement.scrollTop;
-  // if (
-  //   image.getBoundingClientRect().top <= innerHeight &&
-  //   image.getBoundingClientRect().top >= -innerHeight
-  // ) {
-  //   brandwall.style.transform = "translateX(" + window.pageYOffset / 5 + "px)";
-  // }
 
-  // console.log(
-  //   image.getBoundingClientRect().top,
-  //   innerHeight,
-  //   image.getBoundingClientRect().bottom
-  // );
-  // if (brandwall) {
-  //   // let brandwallCords = brandwall.getBoundingClientRect();
-  //   // console.log(brandwallCords);
-  //   // if (
-  //   //   $(brandwall).offset().top <=
-  //   //   $(window).scrollTop() + $(window).height()
-  //   // ) {
-  //   //   brandwall.style.transform = "translateX(-20%)";
-  //   //   console.log("down");
-  //   // } else if (scrollTop < lastScrollTop) {
-  //   //   brandwall.style.transform = "translateX(0)";
-  //   //   console.log("up");
-  //   // }
-  //   let scrollTop = $(window).scrollTop(),
-  //     viewportBottom = scrollTop + $(window).height();
-  //   // console.log("jljk");
-  //   // console.log("offset = ", $(brandwall).offset().top);
-  //   // console.log("outerheight = ", $(brandwall).outerHeight);
-  //   // console.log("scrolltop = ", scrollTop);
-  //   if (
-  //     $(brandwall).offset().top + $(brandwall).outerHeight() > scrollTop &&
-  //     $(brandwall).offset().top < viewportBottom
-  //   ) {
-  //     if (scrollTop < lastScrollTop) {
-  //       brandwall.style.transform = `translateX(-20%)`;
-  //       // console.log("down");
-  //     } else {
-  //       brandwall.style.transform = "translateX(0)";
-  //     }
-  //   }
-  // }
+  if (brandwall) {
+    let brandwallCoords = brandwall.getBoundingClientRect();
+    if (
+      brandwallCoords.top <= innerHeight &&
+      brandwallCoords.top >= -innerHeight
+    ) {
+      brandwall.style.transform =
+        "translateX(" + (brandwallCoords.top - innerHeight) / 2 + "px)";
+    }
+  }
 
   if (footerBlock) {
     let footerCoords = footerBlock.getBoundingClientRect();
     if (footerCoords.top <= innerHeight) {
-      footerString.style.transform = "translateX(" + footerCoords.top + "px)";
+      footerString.style.transform =
+        "translateX(" + (footerCoords.top - innerHeight) / 2 + "px)";
     }
-    console.log(window.pageYOffset);
   }
 
   if (galleryWork) {
     let galleryWorkCords = galleryWork.getBoundingClientRect();
-    // console.log(galleryWorkCords);
 
-    if (galleryWorkCords.top <= galleryWorkCords.height) {
+    if (
+      galleryWorkCords.top <= innerHeight &&
+      galleryWorkCords.top >= -innerHeight
+    ) {
       if (rowTop) {
-        rowTop.style.transform = "translateX(-20%)";
+        rowTop.style.transform =
+          "translateX(" + (galleryWorkCords.top - innerHeight) / 2 + "px)";
       }
 
       if (rowBottom) {
-        rowBottom.style.transform = "translateX(20%)";
+        rowBottom.style.transform =
+          "translateX(" + -(galleryWorkCords.top - innerHeight) / 2 + "px)";
       }
     }
   }
 
   if (clientsBrandwall) {
-    let clientsCords = clients.getBoundingClientRect();
-    if (clientsCords.top <= clientsCords.height) {
-      clientsBrandwall.style.transform = "translateX(-20%)";
+    let clientsBrandwallCords = clientsBrandwall.getBoundingClientRect();
+
+    if (
+      clientsBrandwallCords.top <= innerHeight &&
+      clientsBrandwallCords.top >= -innerHeight
+    ) {
+      clientsBrandwall.style.transform =
+        "translateX(" + (clientsBrandwall.top - innerHeight) / 2 + "px)";
     }
   }
 
@@ -499,18 +476,6 @@ window.addEventListener("scroll", () => {
     // if (brandwall) {
     //   console.log("ggsdgw");
     // }
-
-    if (clientsBrandwall) {
-      clientsBrandwall.style.transform = "translateX(0)";
-    }
-
-    if (rowTop) {
-      rowTop.style.transform = "translateX(0)";
-    }
-
-    if (rowBottom) {
-      rowBottom.style.transform = "translateX(0)";
-    }
   }
 
   if (scrollTop > 77) {
@@ -559,8 +524,6 @@ window.addEventListener("scroll", () => {
 
   lastScrollTop = scrollTop;
 });
-
-let image = document.querySelector(".brandwall");
 
 //scroll-up footer
 
