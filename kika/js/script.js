@@ -76,8 +76,6 @@ if (cursor) {
 
         if (e.pageY >= sliderUsCoords.top && e.pageY <= sliderUsCoords.bottom) {
           cursor.style.transform = "scale(0)";
-        } else {
-          cursor.style.transform = "none";
         }
       } else if (homeGal || servicesItems) {
         let homeGalCoords = getCoords(homeGal),
@@ -105,8 +103,6 @@ if (cursor) {
           e.pageX <= worksGalCoords.right
         ) {
           cursor.style.transform = "scale(0)";
-        } else {
-          cursor.style.transform = "none";
         }
       } else if (servicesItems) {
         //   servicesItems.forEach(function (el) {
@@ -365,18 +361,18 @@ let lastScrollTop = 0,
 
 window.addEventListener("scroll", () => {
   let scrollTop = document.documentElement.scrollTop;
-  if (
-    image.getBoundingClientRect().top <= innerHeight &&
-    image.getBoundingClientRect().top >= -innerHeight
-  ) {
-    brandwall.style.transform = "translateX(" + window.pageYOffset / 5 + "px)";
-  }
+  // if (
+  //   image.getBoundingClientRect().top <= innerHeight &&
+  //   image.getBoundingClientRect().top >= -innerHeight
+  // ) {
+  //   brandwall.style.transform = "translateX(" + window.pageYOffset / 5 + "px)";
+  // }
 
-  console.log(
-    image.getBoundingClientRect().top,
-    innerHeight,
-    image.getBoundingClientRect().bottom
-  );
+  // console.log(
+  //   image.getBoundingClientRect().top,
+  //   innerHeight,
+  //   image.getBoundingClientRect().bottom
+  // );
   // if (brandwall) {
   //   // let brandwallCords = brandwall.getBoundingClientRect();
   //   // console.log(brandwallCords);
