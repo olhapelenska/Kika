@@ -344,7 +344,7 @@ let lastScrollTop = 0,
   homeButton = document.querySelector(".our-works-home__all-works-button"),
   servicesButton = document.querySelector(".services__order-service-button"),
   brandwall = document.querySelector(".brandwall__img"),
-  clientsBrandwall = document.querySelector(".clients__brandwall"),
+  clientsBrandwall = document.querySelector(".clients-brandwall__img"),
   // clients = document.querySelector(".clients"),
   rowTop = document.querySelector(".gallery-work__row-top"),
   rowBottom = document.querySelector(".gallery-work__row-bottom"),
@@ -353,7 +353,7 @@ let lastScrollTop = 0,
   bannerLineWorkRed = document.querySelector(".icon-r-line-works-banner"),
   bannerLineServices = document.querySelector(".icon-services-banner-line"),
   headerButtonWork = document.querySelector(".banner-work .header__btn"),
-  galleryWork = document.querySelector(".gallery-work"),
+  galleryWork = document.querySelector(".gallery-work__rows"),
   footerBlock = document.querySelector(".footer"),
   footerString = document.querySelector(".footer__string"),
   headerMask = document.querySelector(".header__mask"),
@@ -366,10 +366,22 @@ window.addEventListener("scroll", () => {
     let brandwallCoords = brandwall.getBoundingClientRect();
     if (
       brandwallCoords.top <= innerHeight &&
-      brandwallCoords.top >= -innerHeight
+      brandwallCoords.top >= -brandwallCoords.height
     ) {
       brandwall.style.transform =
         "translateX(" + (brandwallCoords.top - innerHeight) / 2 + "px)";
+    }
+  }
+
+  if (clientsBrandwall) {
+    let clientsBrandwallCoords = clientsBrandwall.getBoundingClientRect();
+    console.log(clientsBrandwallCoords);
+    if (
+      clientsBrandwallCoords.top <= innerHeight &&
+      clientsBrandwallCoords.top >= -clientsBrandwallCoords.height
+    ) {
+      clientsBrandwall.style.transform =
+        "translateX(" + (clientsBrandwallCoords.top - innerHeight) / 2 + "px)";
     }
   }
 
@@ -386,7 +398,7 @@ window.addEventListener("scroll", () => {
 
     if (
       galleryWorkCords.top <= innerHeight &&
-      galleryWorkCords.top >= -innerHeight
+      galleryWorkCords.top >= -galleryWorkCords.height
     ) {
       if (rowTop) {
         rowTop.style.transform =
@@ -397,18 +409,6 @@ window.addEventListener("scroll", () => {
         rowBottom.style.transform =
           "translateX(" + -(galleryWorkCords.top - innerHeight) / 2 + "px)";
       }
-    }
-  }
-
-  if (clientsBrandwall) {
-    let clientsBrandwallCords = clientsBrandwall.getBoundingClientRect();
-
-    if (
-      clientsBrandwallCords.top <= innerHeight &&
-      clientsBrandwallCords.top >= -innerHeight
-    ) {
-      clientsBrandwall.style.transform =
-        "translateX(" + (clientsBrandwall.top - innerHeight) / 2 + "px)";
     }
   }
 
@@ -529,14 +529,13 @@ window.addEventListener("scroll", () => {
 
 $(".flowing-scroll").on("click", function () {
   let el = $(this);
-  let dest = el.attr("href"); // получаем направление
+  let dest = el.attr("href");
   if (dest !== undefined && dest !== "") {
-    // проверяем существование
     $("html").animate(
       {
-        scrollTop: $(dest).offset().top, // прокручиваем страницу к требуемому элементу
+        scrollTop: $(dest).offset().top,
       },
-      1000 // скорость прокрутки
+      1000
     );
   }
   return false;

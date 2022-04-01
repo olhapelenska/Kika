@@ -1713,15 +1713,15 @@ textarea {
 }
 
 .footer__arrow-up {
-  display: block;
+  display: inline-block;
   padding-bottom: 40px;
   position: relative;
 }
 
 .footer__arrow-up .arrow-elipse {
   position: absolute;
-  top: -90%;
-  left: -45%;
+  top: -100%;
+  left: -150%;
   width: auto;
 }
 
@@ -3333,17 +3333,36 @@ textarea {
   margin-left: 100px;
 }
 
-.clients__brandwall {
-  position: relative;
-  z-index: 2;
-  width: 200%;
-}
-
 .clients .clients-ellipse {
   position: absolute;
   top: -30%;
   right: -30%;
   width: auto;
+}
+
+.clients-brandwall {
+  position: relative;
+}
+
+._no-webp .clients-brandwall__mask{
+  background-image: url(../img/Rectangle.png); }
+
+.clients-brandwall__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: overlay;
+  opacity: 1;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.clients-brandwall__img {
+  width: 200%;
+  position: relative;
+  z-index: 2;
 }
 
 .we-love {
@@ -5018,6 +5037,10 @@ textarea {
     display: none;
   }
 
+  .clients-brandwall__img {
+    width: 300%;
+  }
+
   .banner-work__content {
     margin-left: 0;
   }
@@ -5506,10 +5529,6 @@ textarea {
 
   .clients__title {
     margin-left: 0;
-  }
-
-  .clients__brandwall {
-    width: 400%;
   }
 
   .clients .clients-ellipse {
@@ -6221,6 +6240,10 @@ textarea {
     padding: 25px 0 0;
     width: 64%;
   }
+
+  .clients-brandwall__img {
+    width: 400%;
+  }
 }
 
 @media (max-width: 425px) {
@@ -6368,6 +6391,8 @@ textarea {
 ._webp .galery-about-us__mask{ background-image: url(../img/Rectangle.webp); }
 
 ._webp .clients__mask{ background-image: url(../img/Rectangle.webp); }
+
+._webp .clients-brandwall__mask{ background-image: url(../img/Rectangle.webp); }
 
 ._webp .we-love__mask{ background-image: url(../img/Rectangle.webp); }
 
